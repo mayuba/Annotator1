@@ -11,6 +11,12 @@ Le logiciel Annotator est un logiciel qui sera disponible sur internet à partir
 
 Pour plus d'informations, vous pouvez consulter le wiki du projet qui contient un extrait du cahier des charges et permet de mieu comprendre l'enjeu du projet.
 
+#Description de la structure de fichiers du projet
+
+--Annotator1 --> Est le root de notre projet. Il contient les fichiers de configurations
+ |--e2e --> Permet de stocker les tests de type end-to-end.
+ |--src --> Contient les fichiers sources propre à l'excécution de l'application
+
 # Annotateur
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.7.
