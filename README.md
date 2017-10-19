@@ -30,6 +30,8 @@ Pour plus d'informations, vous pouvez consulter le wiki du projet qui contient u
                            |--MenuSelection--> Contient le code nécessaire au fonctionnement du menu de sélection
 
                |--App--> Module App qui contient toutes les dépendances de l'application
+        
+               |--Environments--> Permet l'exploitation de différents environnements (PROD,TEST, etc)   
 
 # Annotateur
 
