@@ -14,7 +14,9 @@ Pour plus d'informations, vous pouvez consulter le wiki du projet qui contient u
 #Description de la structure de fichiers du projet
 
 --Annotator1 --> Est le root de notre projet. Il contient les fichiers de configurations
+
  |--e2e --> Permet de stocker les tests de type end-to-end.
+
  |--src --> Contient les fichiers sources propre à l'excécution de l'application
 
 # Annotateur
