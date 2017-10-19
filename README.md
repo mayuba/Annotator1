@@ -11,13 +11,25 @@ Le logiciel Annotator est un logiciel qui sera disponible sur internet à partir
 
 Pour plus d'informations, vous pouvez consulter le wiki du projet qui contient un extrait du cahier des charges et permet de mieu comprendre l'enjeu du projet.
 
-#Description de la structure de fichiers du projet
+#Structure des fichiers du projet
 
 --Annotator1 --> Est le root de notre projet. Il contient les fichiers de configurations
 
- |--e2e --> Permet de stocker les tests de type end-to-end.
+         |--e2e --> Permet de stocker les tests de type end-to-end.
 
- |--src --> Contient les fichiers sources propre à l'excécution de l'application
+         |--src --> Contient les fichiers sources propre à l'excécution de l'application
+
+               |--Modules --> Contients la structure des modules du projet.
+
+                           |--Annotation --> Contient le code nécessaire au fonctionnement de l'annotation
+
+                           |--Connexion--> Contient le code nécessaire au fonctionnement de la connexion
+
+                           |--Gestion du projet--> Contient le code nécessaire au fonctionnement de la gestion de projet
+
+                           |--MenuSelection--> Contient le code nécessaire au fonctionnement du menu de sélection
+
+               |--App--> Module App qui contient toutes les dépendances de l'application
 
 # Annotateur
 
