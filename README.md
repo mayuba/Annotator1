@@ -19,17 +19,17 @@ Pour plus d'informations, vous pouvez consulter le wiki du projet qui contient u
 
          |--src --> Contient les fichiers sources propre à l'excécution de l'application
 
-               |--Modules --> Contients la structure des modules du projet.
+               |--App--> Module App qui contient la stucture de nos modules ainsi que les composantes de base
+               
+                     |--Modules --> Contients les différents module de l'application
 
-                           |--Annotation --> Contient le code nécessaire au fonctionnement de l'annotation
+                           |--Annotation --> Contient les fichiers nécessaire au fonctionnement de l'annotation
 
-                           |--Connexion--> Contient le code nécessaire au fonctionnement de la connexion
+                           |--Connexion--> Contient les fichiers  nécessaire au fonctionnement de la connexion
 
-                           |--Gestion du projet--> Contient le code nécessaire au fonctionnement de la gestion de projet
+                           |--Gestion du projet--> Contient les fichiers  nécessaire au fonctionnement de la gestion de projet
 
-                           |--MenuSelection--> Contient le code nécessaire au fonctionnement du menu de sélection
-
-               |--App--> Module App qui contient toutes les dépendances de l'application
+                           |--MenuSelection--> Contient les fichiers  nécessaire au fonctionnement du menu de sélection
         
                |--Environments--> Permet l'exploitation de différents environnements (PROD,TEST, etc)   
 
