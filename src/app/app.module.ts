@@ -11,6 +11,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterComponent } from './modules/register/register.component';
+import { LoginComponent } from './modules/login/login.component';
+import { AnnotationComponent } from './modules/annotation/annotation.component';
+import { AdminComponent } from './modules/admin/admin.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
@@ -23,7 +26,10 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent,
+    AnnotationComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
