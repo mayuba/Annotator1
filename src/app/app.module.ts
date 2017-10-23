@@ -14,6 +14,8 @@ import { RegisterComponent } from './modules/register/register.component';
 import { LoginComponent } from './modules/login/login.component';
 import { AnnotationComponent } from './modules/annotation/annotation.component';
 import { AdminComponent } from './modules/admin/admin.component';
+import { HeadersComponent } from './shared/component/headers/headers.component';
+import { FooterComponent } from './shared/component/footer/footer.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
@@ -29,7 +31,9 @@ export const firebaseConfig = {
     RegisterComponent,
     LoginComponent,
     AnnotationComponent,
-    AdminComponent
+    AdminComponent,
+    HeadersComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
