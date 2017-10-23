@@ -18,6 +18,8 @@ import { HeadersComponent } from './shared/component/headers/headers.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
 import { AlertDirective } from './alert.directive';
 import { HomeComponent } from './modules/home/home.component';
+import { ProjectComponent } from './modules/project/project.component';
+import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
@@ -37,7 +39,9 @@ export const firebaseConfig = {
     HeadersComponent,
     FooterComponent,
     AlertDirective,
-    HomeComponent
+    HomeComponent,
+    ProjectComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
