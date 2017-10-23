@@ -20,20 +20,20 @@ Annotator1/                   -- root du projet avec fichiers docs
     │	├── guard/
     │	├── models/
     │	├── modules/
-    │   ├── Annotation        -- fonctionnalité de l'annotation
-    │   ├── login             --
-    │   ├── register          --
-    │   ├── project           -- fonctionnalité de la gestion de projet
-    │   ├── page-not-found    --
-    │   ├── home              --
-    │   └── admin             --
+    │       ├── Annotation        -- fonctionnalité de l'annotation
+    │       ├── login             --
+    │       ├── register          --
+    │       ├── project           -- fonctionnalité de la gestion de projet
+    │       ├── page-not-found    --
+    │       ├── home              --
+    │       └── admin             --
     │	├── firebase/         --
     │	├── services/         --
     │	└── shared/           -- 
-    │     ├── component       --  contient l'en-tête et le pied de page
-    │        ├── headers      --
-    │        └── footer       --
-    │     └──modules          -- inscrit les composants partager aux utilisateurs.
+    │       ├── component       --  contient l'en-tête et le pied de page
+    │           ├── headers      --
+    │           └── footer       --
+    │       └──modules          -- inscrit les composants partager aux utilisateurs.
     ├── assets/               -- fichiers ressources
     └── environments/         -- description des environnements (prod, test, dev)
 ```
