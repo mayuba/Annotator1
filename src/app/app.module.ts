@@ -17,6 +17,7 @@ import { AdminComponent } from './modules/admin/admin.component';
 import { HeadersComponent } from './shared/component/headers/headers.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
 import { AlertDirective } from './alert.directive';
+import { HomeComponent } from './modules/home/home.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
@@ -35,7 +36,8 @@ export const firebaseConfig = {
     AdminComponent,
     HeadersComponent,
     FooterComponent,
-    AlertDirective
+    AlertDirective,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
