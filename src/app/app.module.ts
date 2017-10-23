@@ -16,6 +16,7 @@ import { AnnotationComponent } from './modules/annotation/annotation.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { HeadersComponent } from './shared/component/headers/headers.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
+import { AlertDirective } from './alert.directive';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
@@ -33,7 +34,8 @@ export const firebaseConfig = {
     AnnotationComponent,
     AdminComponent,
     HeadersComponent,
-    FooterComponent
+    FooterComponent,
+    AlertDirective
   ],
   imports: [
     BrowserModule,
