@@ -11,27 +11,32 @@ Le logiciel Annotator est un logiciel qui sera disponible sur internet à partir
 
 Pour plus d'informations, vous pouvez consulter le wiki du projet qui contient un extrait du cahier des charges et permet de mieu comprendre l'enjeu du projet.
 
-#Structure des fichiers du projet
-
---Annotator1 --> Est le root de notre projet. Il contient les fichiers de configurations
-
-         |--e2e --> Permet de stocker les tests de type end-to-end.
-
-         |--src --> Contient les fichiers sources propre à l'excécution de l'application
-
-               |--App--> Module App qui contient la stucture de nos modules ainsi que les composantes de base
-               
-                     |--Modules --> Contients les différents module de l'application
-
-                           |--Annotation --> Contient les fichiers nécessaire au fonctionnement de l'annotation
-
-                           |--Connexion--> Contient les fichiers  nécessaire au fonctionnement de la connexion
-
-                           |--Gestion du projet--> Contient les fichiers  nécessaire au fonctionnement de la gestion de projet
-
-                           |--MenuSelection--> Contient les fichiers  nécessaire au fonctionnement du menu de sélection
-        
-               |--Environments--> Permet l'exploitation de différents environnements (PROD,TEST, etc)   
+#  Structure du projet
+```
+Annotator1/                   -- root du projet avec fichiers docs
+├── e2e/                      -- Permet de stocker les tests de type end-to-end.
+└── src/                      -- fichiers sources propre à l'excécution de l'application
+    ├── app/                  -- la stucture de nos modules ainsi que les composantes de base
+    │	├── guard/
+    │	├── models/
+    │	├── modules/
+    │   ├── Annotation        -- fonctionnalité de l'annotation
+    │   ├── login             --
+    │   ├── register          --
+    │   ├── project           -- fonctionnalité de la gestion de projet
+    │   ├── page-not-found    --
+    │   ├── home              --
+    │   └── admin             --
+    │	├── firebase/         --
+    │	├── services/         --
+    │	└── shared/           -- 
+    │     ├── component       --  contient l'en-tête et le pied de page
+    │        ├── headers      --
+    │        └── footer       --
+    │     └──modules          -- inscrit les composants partager aux utilisateurs.
+    ├── assets/               -- fichiers ressources
+    └── environments/         -- description des environnements (prod, test, dev)
+```
 
 # Annotateur
 
