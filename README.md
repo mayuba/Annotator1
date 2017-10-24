@@ -17,9 +17,9 @@ Annotator1/                       -- root du projet avec fichiers docs
 ├── e2e/                          -- Permet de stocker les tests de type end-to-end.
 └── src/                          -- fichiers sources propre à l'excécution de l'application
     ├── app/                      -- la structure de nos modules ainsi que les composantes de base
-    │	├── guard/
-    │	├── models/
-    │	├── modules/
+    │	├── guard/                  -- reimportation de la session
+    │	├── models/                 -- 
+    │	├── modules/                
     │       ├── Annotation        -- fonctionnalité de l'annotation
     │       ├── login             --
     │       ├── register          --
@@ -27,8 +27,8 @@ Annotator1/                       -- root du projet avec fichiers docs
     │       ├── page-not-found    --
     │       ├── home              --
     │       └── admin             --
-    │	├── firebase/             --
-    │	├── services/             --
+    │	├── firebase/             -- serveur firebase
+    │	├── services/             -- 
     │	└── shared/               -- 
     │       ├── component         --  contient l'en-tête et le pied de page
     │           ├── headers       --
