@@ -35,6 +35,7 @@ Annotator1/                       -- root du projet avec fichiers docs
     │           └── footer        --
     │       └──modules            -- inscrit les composants partager aux utilisateurs.
     ├── assets/                   -- fichiers ressources
+    ├── test/                     -- fichiers des tests
     └── environments/             -- description des environnements (prod, test, dev)
 ```
 
