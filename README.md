@@ -17,9 +17,10 @@ Annotator1/                       -- root du projet avec fichiers docs
 ├── e2e/                          -- Permet de stocker les tests de type end-to-end.
 └── src/                          -- fichiers sources propre à l'excécution de l'application
     ├── app/                      -- la structure de nos modules ainsi que les composantes de base
+    │	├── directives/             -- reimportation de la session
     │	├── guard/                  -- reimportation de la session
     │	├── models/                 -- 
-    │	├── modules/                
+    │	├── components/                
     │       ├── Annotation        -- fonctionnalité de l'annotation
     │       ├── login             --
     │       ├── register          --
