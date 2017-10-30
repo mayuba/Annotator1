@@ -16,7 +16,7 @@ import { AnnotationComponent } from './components/annotation/annotation.componen
 import { AdminComponent } from './components/admin/admin.component';
 import { HeadersComponent } from './shared/component/headers/headers.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
-import { AlertDirective } from './alert.directive';
+import { AlertDirective } from './directives/alert.directive';
 import { HomeComponent } from './components/home/home.component';
 import { ProjectComponent } from './components/project/project.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
