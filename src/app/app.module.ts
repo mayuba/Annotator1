@@ -10,16 +10,16 @@ import { AngularFireModule } from 'angularfire2';
 //New imports to update based on AngularFire2 version 4
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { RegisterComponent } from './modules/register/register.component';
-import { LoginComponent } from './modules/login/login.component';
-import { AnnotationComponent } from './modules/annotation/annotation.component';
-import { AdminComponent } from './modules/admin/admin.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { AnnotationComponent } from './components/annotation/annotation.component';
+import { AdminComponent } from './components/admin/admin.component';
 import { HeadersComponent } from './shared/component/headers/headers.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
 import { AlertDirective } from './alert.directive';
-import { HomeComponent } from './modules/home/home.component';
-import { ProjectComponent } from './modules/project/project.component';
-import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProjectComponent } from './components/project/project.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
