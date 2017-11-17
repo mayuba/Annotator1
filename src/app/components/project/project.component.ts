@@ -7,9 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectComponent implements OnInit {
 
+	model: any = {};
+	Projects: File[]=[];
+ 	Corpus: File[]=[];
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  	loadProjects(){
+
+  	}
+
+  	loadCorpus(project: string){
+
+  	}
+
+	loadLinkToStorage(link: string){
+
+	}
+	
+  	addText(){
+
+  	}
 
 }
