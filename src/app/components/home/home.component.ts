@@ -12,4 +12,27 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  logOut() {
+
+  }
+  //Récupération des informations sur l'utilisateur (référence a user.service)
+  userInfo() {
+
+  }
+
+  //Récupération des informations sur les projets (référence a project.service)
+  projectInfo() {
+
+  }
+
+   //Redirection vers le module projet pour la creation d'un projet
+  createProject() {
+
+  }
+
+  //Redirection vers le module projet pour la modification
+  editProject() {
+
+  }
+
 }
