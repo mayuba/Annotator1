@@ -14,26 +14,31 @@ export class ProjetService {
   }
 
   //Obtention du titre du projet selon son id
-  getTitre(projectId:string){
+  getTitre(projectId:number){
 
   }
   //Obtention de la liste d'utilisateurs
-  getListUsers(projectId:string){
+  getListUsers(projectId:number){
 
   }
 
   //Obtention du corpusCollection
-  getCorpus(projectId:string){
+  getCorpus(projectId:number){
 
 }
-  
+
 
   //Ajout d'un nouveau projet dans la base de donnees
-  addProject(titre:string, adminId:string, userList?:[string]){
+  addProject(titre:string, adminId:number, userList?:[number]){
 
   }
   //suppression d'un projet
-  removeProject(projectId: string){
+  removeProject(projectId: number){
+
+  }
+
+  //Obtention du titre du projet selon lutilisateur
+  getTitre(projectId[]: number){
 
   }
 
