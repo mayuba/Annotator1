@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-text.component.css']
 })
 export class AddTextComponent implements OnInit {
+  
 
   constructor() { }
 
