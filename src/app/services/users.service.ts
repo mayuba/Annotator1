@@ -16,7 +16,7 @@ export class UsersService {
   }
 
   // Suppression d'un utilisateur
-  delUser(id: int) {
+  delUser(id: number) {
 
   }
 
