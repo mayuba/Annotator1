@@ -11,7 +11,7 @@ export class UsersService {
   }
 
   // Permet la modification des informations d'un utilisateur
-  modifUser(id: int, username: string, password: string, email: string){
+  modifUser(id: number, username: string, password: string, email: string){
 
   }
 
