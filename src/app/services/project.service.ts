@@ -42,9 +42,4 @@ export class ProjetService {
 
   }
 
-  //Obtention du titre du projet selon l'utilisateur
-  getTitre(projectId[]: [number]){
-
-  }
-
 }
