@@ -6,39 +6,35 @@ import{Observable} from 'rxjs/Observable';
 @Injectable()
 
 export class ProjetService {
-  //corpusCollection:AngularFirestoreCollection<IDocument>
-  //documentListe:Observable<Item[]>;
+  Project:any={};
+
 
   constructor() {
 
   }
 
-  //Obtention du titre du projet selon son id
-  getTitre(projectId:number){
+  //Obtention de la liste de tous les projets
+  getAll(){
 
   }
-  //Obtention de la liste d'utilisateurs
-  getListUsers(projectId:number){
+  //Obtention du modèle du projet à partir de son id
+  getModel(id:number){
 
   }
 
-  //Obtention du corpusCollection
-  getCorpus(projectId:number){
-
-}
-
-
-  //Ajout d'un nouveau projet dans la base de donnees
-  addProject(titre:string, adminId:number, userList?:[number]){
+  //Création d'un nouveau projet
+  create(titre:string, adminId?:number, userList?:[number]){
 
   }
   //suppression d'un projet
-  removeProject(projectId: number){
+  //a modifier: au lieu de id avoir le modele Project...donne des erreurs...
+  delete(projectId:number){
 
   }
 
-  //Modification d'un project
-  editProject(projectId: number){
+  //Modification des données d'un projet
+  //meme probleme qu'avec delete
+  edit(projectId: number){
 
   }
 
