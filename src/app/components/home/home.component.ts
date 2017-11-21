@@ -30,9 +30,14 @@ export class HomeComponent implements OnInit {
 
   }
 
-  //Redirection vers le module projet pour la modification
+  //redirection vers la fenêtre pour la modification
   editProject() {
 
   }
 
+  //Redirection vers la fenêtre pour la modification dans le but
+  //de suppimer le projet
+  deleteProject() {
+
+  }
 }
