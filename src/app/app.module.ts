@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import { NgModule } from '@angular/core';
+import { Routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 
@@ -20,6 +21,8 @@ import { AlertDirective } from './directives/alert.directive';
 import { HomeComponent } from './components/home/home.component';
 import { ProjectComponent } from './components/project/project.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HeaderComponent } from './shared/component/header/header.component';
+import { GestionRoleComponent } from './components/gestion-role/gestion-role.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
@@ -41,12 +44,15 @@ export const firebaseConfig = {
     AlertDirective,
     HomeComponent,
     ProjectComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HeaderComponent,
+    GestionRoleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    Routing,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
