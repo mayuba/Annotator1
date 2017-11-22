@@ -12,4 +12,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Pour l'inscirption d'un nouvel utilisateur
+  register(username: string, password: string, email: string) {
+
+  }
+
 }
