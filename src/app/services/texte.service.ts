@@ -9,8 +9,11 @@ export class AjoutDocumentService {
   //corpusCollection:AngularFirestoreCollection<IDocument>
   //documentListe:Observable<Item[]>;
 
-  constructor(/*private dbc: AngularFirestore*/) { }
+  constructor() {
 
+  }
+
+  //
   getDocumentMeta(path:string){
 
   }
@@ -19,6 +22,8 @@ export class AjoutDocumentService {
 
   }
 
+  removeText(projectId: string, textId:string){
 
+  }
 
 }

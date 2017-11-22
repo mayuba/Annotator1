@@ -20,4 +20,13 @@ export class UsersService {
 
   }
 
+  // Permet de chercher les peojets dont il fait partie
+  getProjects(id: number)  {
+
+  }
+  // Permet de chercher les peojets dont il est administrateur 
+  getAdmin(id: number)  {
+
+  }
+
 }

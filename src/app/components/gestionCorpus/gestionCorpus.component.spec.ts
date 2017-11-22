@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddTextComponent } from './add-text.component';
+import { GestionCorpusComponent } from './gestionCorpus.component';
 
-describe('AddTextComponent', () => {
-  let component: AddTextComponent;
-  let fixture: ComponentFixture<AddTextComponent>;
+describe('GestionCorpusComponent', () => {
+  let component: GestionCorpusComponent;
+  let fixture: ComponentFixture<GestionCorpusComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddTextComponent ]
+      declarations: [ GestionCorpusComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddTextComponent);
+    fixture = TestBed.createComponent(GestionCorpusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
