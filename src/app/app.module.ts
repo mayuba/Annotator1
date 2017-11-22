@@ -23,6 +23,7 @@ import { ProjectComponent } from './components/project/project.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './shared/component/header/header.component';
 import { GestionRoleComponent } from './components/gestion-role/gestion-role.component';
+import { MesProjetComponent } from './components/mes-projet/mes-projet.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
@@ -46,7 +47,8 @@ export const firebaseConfig = {
     ProjectComponent,
     PageNotFoundComponent,
     HeaderComponent,
-    GestionRoleComponent
+    GestionRoleComponent,
+    MesProjetComponent
   ],
   imports: [
     BrowserModule,
