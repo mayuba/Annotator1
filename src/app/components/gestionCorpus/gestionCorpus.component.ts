@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './gestionCorpus.component.html',
   styleUrls: ['./gestionCorpus.component.css']
 })
-export class gestionCorpusComponent implements OnInit {
+export class GestionCorpusComponent implements OnInit {
   Project: any = {};
 
   constructor() {
