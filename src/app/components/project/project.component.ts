@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
+//pour l'ajout de boutons etc..
+import {MatButtonModule} from '@angular/material';
 
 @Component({
   selector: 'app-project',
