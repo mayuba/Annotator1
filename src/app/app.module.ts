@@ -39,7 +39,6 @@ export const firebaseConfig = {
     LoginComponent,
     AnnotationComponent,
     AdminComponent,
-    HeadersComponent,
     FooterComponent,
     AlertDirective,
     HomeComponent,
