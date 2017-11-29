@@ -15,7 +15,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AnnotationComponent } from './components/annotation/annotation.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { HeadersComponent } from './shared/component/headers/headers.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
 import { AlertDirective } from './directives/alert.directive';
 import { HomeComponent } from './components/home/home.component';
@@ -40,7 +39,6 @@ export const firebaseConfig = {
     LoginComponent,
     AnnotationComponent,
     AdminComponent,
-    HeadersComponent,
     FooterComponent,
     AlertDirective,
     HomeComponent,
