@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-project',
@@ -48,7 +49,7 @@ export class ProjectComponent implements OnInit {
   	}
 
   	//
-  	
+
   	delete(){
 
   	}
