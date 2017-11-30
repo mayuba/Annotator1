@@ -1,4 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
 body {
     background-color:#EBEBEB;
     padding-top: 5em;
@@ -15,4 +17,16 @@ button {
     font-size:1.2em;
     margin-bottom: 30px;
     cursor:pointer;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
