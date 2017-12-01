@@ -1,3 +1,26 @@
-<p>
-  mes-projet works!
-</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+            <div class="input-group" id="adv-search">
+                <input type="text" class="form-control" placeholder="Search for snippets" />
+                <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <div class="dropdown dropdown-lg">
+                        </div>
+                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center"
+    *ngFor="let projects of myprojects">
+    <a href="#" class="list-group-item list-group-item-action">
+    {{projects}}
+    </a>
+    <span class="badge badge-primary badge-pill">14</span>
+  </li>
+</ul>
+<p>mes projetct work </p>
