@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { Routing } from './app.routing';
 import {MatButtonModule,MatToolbarModule, MatListModule, MatGridListModule,
   MatMenuModule, MatStepperModule, MatCardModule, MatTabsModule, MatIconModule,
-MatInputModule} from '@angular/material';
+MatInputModule, MatFormFieldModule, MatSelectModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 
@@ -57,7 +57,7 @@ export const firebaseConfig = {
     FormsModule,
     MatButtonModule,MatToolbarModule, MatListModule, MatGridListModule,
     MatMenuModule, MatStepperModule, MatCardModule, MatTabsModule, MatIconModule,
-    MatInputModule,
+    MatInputModule, MatFormFieldModule, MatSelectModule,
     HttpModule,
     Routing,
     AngularFireModule.initializeApp(firebaseConfig),
