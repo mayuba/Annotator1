@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -6,6 +7,7 @@ import { Routing } from './app.routing';
 import {MatButtonModule,MatToolbarModule, MatListModule, MatGridListModule,
   MatMenuModule, MatStepperModule, MatCardModule, MatTabsModule, MatIconModule,
 MatInputModule, MatFormFieldModule, MatSelectModule} from '@angular/material';
+
 
 import { AppComponent } from './app.component';
 
@@ -54,6 +56,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     MatButtonModule,MatToolbarModule, MatListModule, MatGridListModule,
     MatMenuModule, MatStepperModule, MatCardModule, MatTabsModule, MatIconModule,
