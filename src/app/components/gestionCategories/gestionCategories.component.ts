@@ -6,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gestionCategories.component.css']
 })
 export class GestionCategoriesComponent implements OnInit {
-  Project:any={};
-  colourList:string[]=[/*strings a ajouter*/];
+/*  Project:any={};
+  colourList:string[]=[];
   count:number
-
-
+*/
   constructor() {
   }
 

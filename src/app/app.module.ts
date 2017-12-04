@@ -23,10 +23,12 @@ import { FooterComponent } from './shared/component/footer/footer.component';
 import { AlertDirective } from './directives/alert.directive';
 import { HomeComponent } from './components/home/home.component';
 import { ProjectComponent } from './components/project/project.component';
+import { DialogOverviewExampleDialog } from './components/project/project.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './shared/component/header/header.component';
 import { GestionRoleComponent } from './components/gestion-role/gestion-role.component';
 import { MesProjetComponent } from './components/mes-projet/mes-projet.component';
+import { GestionCategoriesComponent } from './components/gestionCategories/gestionCategories.component';
 //importation des services
 import {ProjetService} from './services/index'
 
@@ -52,7 +54,9 @@ export const firebaseConfig = {
     PageNotFoundComponent,
     HeaderComponent,
     GestionRoleComponent,
-    MesProjetComponent
+    MesProjetComponent,
+    DialogOverviewExampleDialog
+    GestionCategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +72,7 @@ export const firebaseConfig = {
     AngularFireAuthModule
   ],
   providers: [ProjetService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [GestionCategoriesComponent]
 })
 export class AppModule { }
