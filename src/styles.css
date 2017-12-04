@@ -3,7 +3,7 @@
 
 body {
     background-color:#EBEBEB;
-    padding-top: 5em;
+    padding-top: 0em;
 }
 * {
     font-family: 'Raleway';
@@ -12,16 +12,11 @@ button {
     background:#008FEF;
     color:white;
     padding: 1.2em;
-    width:300px;
+    width:200px;
     text-align:center;
     font-size:1.2em;
     margin-bottom: 30px;
     cursor:pointer;
-}
-
-.column {
-    float: left;
-    width: 50%;
 }
 
 /* Clear floats after the columns */
