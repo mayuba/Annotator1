@@ -11,8 +11,9 @@
       <mat-list-item>Texte1</mat-list-item>
       <mat-list-item>Texte2</mat-list-item>
       <mat-list-item>Texte3</mat-list-item>
+      <mat-list-item>Texte3</mat-list-item>
      </mat-list>
-    <p><button mat-button>Ajouter un texte</button></p>
+    <p><button mat-button (click)="openCorpusDialog()">Ajouter un texte</button></p>
   </mat-card-content>
 </mat-card>
 </div>
@@ -56,7 +57,7 @@
         <mat-grid-tile>catégorie 8</mat-grid-tile>
       </mat-grid-list>
 
-      <button mat-button (click)="openDialog()">Ajouter une catégorie</button>
+      <button mat-button (click)="openCategoriesDialog()">Ajouter une catégorie</button>
 
 
 

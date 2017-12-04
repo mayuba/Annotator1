@@ -5,14 +5,13 @@ import {HttpModule} from '@angular/http';
 import { NgModule } from '@angular/core';
 import { Routing } from './app.routing';
 import {MatButtonModule,MatToolbarModule, MatListModule, MatGridListModule,
-  MatMenuModule, MatStepperModule, MatCardModule, MatTabsModule, MatIconModule,
+MatMenuModule, MatStepperModule, MatCardModule, MatTabsModule, MatIconModule,
 MatInputModule, MatFormFieldModule, MatSelectModule, MatDialogModule} from '@angular/material';
-
+import { FileDropModule } from 'ngx-file-drop';
 
 import { AppComponent } from './app.component';
 
 import { AngularFireModule } from 'angularfire2';
-
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterComponent } from './components/register/register.component';
@@ -29,6 +28,7 @@ import { HeaderComponent } from './shared/component/header/header.component';
 import { GestionRoleComponent } from './components/gestion-role/gestion-role.component';
 import { MesProjetComponent } from './components/mes-projet/mes-projet.component';
 import { GestionCategoriesComponent } from './components/gestionCategories/gestionCategories.component';
+import { GestionCorpusComponent } from './components/gestionCorpus/gestionCorpus.component';
 //importation des services
 import {ProjetService} from './services/index'
 
@@ -55,8 +55,9 @@ export const firebaseConfig = {
     HeaderComponent,
     GestionRoleComponent,
     MesProjetComponent,
-    DialogOverviewExampleDialog
-    GestionCategoriesComponent
+    DialogOverviewExampleDialog,
+    GestionCategoriesComponent,
+    GestionCorpusComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +66,7 @@ export const firebaseConfig = {
     MatButtonModule,MatToolbarModule, MatListModule, MatGridListModule,
     MatMenuModule, MatStepperModule, MatCardModule, MatTabsModule, MatIconModule,
     MatInputModule, MatFormFieldModule, MatSelectModule, MatDialogModule,
+    FileDropModule,
     HttpModule,
     Routing,
     AngularFireModule.initializeApp(firebaseConfig),
@@ -73,6 +75,6 @@ export const firebaseConfig = {
   ],
   providers: [ProjetService],
   bootstrap: [AppComponent],
-  entryComponents: [GestionCategoriesComponent]
+  entryComponents: [GestionCategoriesComponent, GestionCorpusComponent]
 })
 export class AppModule { }

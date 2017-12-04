@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   { path: 'dashboard', component: MesProjetComponent },
   { path: 'annotation', component: AnnotationComponent },
   { path: 'projet', component: ProjectComponent },
-//  { path: 'corpus', component: GestionCorpusComponent },
+  { path: 'corpus', component: GestionCorpusComponent },
   { path: 'categories', component: GestionCategoriesComponent},
   { path: 'roles', component: GestionRoleComponent },
   //  { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' },

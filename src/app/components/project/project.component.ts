@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {NgForm} from '@angular/forms';
 import {GestionCategoriesComponent} from '../gestionCategories/gestionCategories.component';
-
+import {GestionCorpusComponent} from '../gestionCorpus/gestionCorpus.component';
 
 @Component({
   selector: 'app-project',
@@ -22,8 +22,20 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
   }
 
+  openCorpusDialog(): void{
+    let dialogRef = this.dialog.open(GestionCorpusComponent, {
+      width: '300px',
+      data: { categoryName: this.categoryName, categoryColor: this.categoryColor }
+    });
 
-  openDialog(): void{
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.categoryColor = result;
+    });
+   }
+
+
+  openCategoriesDialog(): void{
     let dialogRef = this.dialog.open(GestionCategoriesComponent, {
       width: '300px',
       data: { categoryName: this.categoryName, categoryColor: this.categoryColor }

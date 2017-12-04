@@ -1,3 +1,25 @@
-<p>
-  gestionCorpus works!
-</p>
+<h3>Ajout d'un texte</h3>
+
+<div class="center">
+    <file-drop headertext="Déposer un fichier .txt ici" (onFileDrop)="dropped($event)"
+    (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+    </file-drop>
+    <div class="upload-table">
+        <table class="table">
+            <tbody class="upload-name-style">
+                <tr *ngFor="let item of files; let i=index">
+                    <td><strong>{{ item.relativePath }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<mat-form-field>
+  <input matInput placeholder="Titre">
+</mat-form-field>
+<mat-form-field>
+  <input matInput placeholder="Auteur">
+</mat-form-field>
+
+<p><button mat-button>Ajouter l'oeuvre au corpus</button></p>
