@@ -7,7 +7,7 @@ import { Routing } from './app.routing';
 import { AppComponent } from './app.component';
 
 import { AngularFireModule } from 'angularfire2';
-
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 //New imports to update based on AngularFire2 version 4
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -31,6 +31,7 @@ export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
   authDomain: "annotateur-9b363.firebaseapp.com",
   databaseURL: "https://annotateur-9b363.firebaseio.com",
+  projectId: "annotateur-9b363",
   storageBucket: "annotateur-9b363.appspot.com",
   messagingSenderId: "581480444578"
 };
@@ -59,7 +60,8 @@ export const firebaseConfig = {
     Routing,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [ProjetService],
   bootstrap: [AppComponent]
