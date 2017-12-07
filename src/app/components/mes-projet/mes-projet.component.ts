@@ -3,14 +3,6 @@ import {ProjetService} from 'app/services/index';
 import{Observable} from 'rxjs/Observable';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
-export interface User {
-  username: string;
-  password: string;
-  firstName: string;
-  lastName: string;
-  projet: Array<string>;
-}
-
 @Component({
   selector: 'app-mes-projet',
   templateUrl: './mes-projet.component.html',
