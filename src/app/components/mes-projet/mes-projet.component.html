@@ -3,8 +3,8 @@
       <mat-toolbar><h3>Mes projets</h3></mat-toolbar>
       <mat-card-content>
         <mat-nav-list *ngFor="let item of model | async">
-          <mat-list-item *ngFor="let i of generateArray(item.projet)">
-             <a matLine href="#">{{i.value}}</a>
+          <mat-list-item *ngFor="let each of generateArray(item.projet)">
+             <a matLine (click)="select(each.value)" [routerLink]="['/projet']">{{each.value}}</a>
              <button mat-icon-button (click)="showInfo(link)">
              </button>
           </mat-list-item>
