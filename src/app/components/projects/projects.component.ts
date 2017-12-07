@@ -53,11 +53,15 @@ export class ProjectsComponent implements OnInit {
  results: Object;
    searchTerm$ = new Subject<string>();
 
-  constructor(private projetService: ProjetService,private afs: AngularFirestore) {
+   currentUser:string;
 
+  constructor(private projetService: ProjetService) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
+    //cree un faux projet :)
+    //this.create("1021","Developpement","toto"," projet d'annotation universitaire");
     //recuperation de tout le projet
     this.projetService.getAll().subscribe((projets) => {
      this.all = projets;
@@ -82,9 +86,11 @@ export class ProjectsComponent implements OnInit {
 }
 
 //Cree un projet
-  	create(id:string,titre: string, admin:string,){
-      const projet: Projet = { id,titre, admin };
-      this.projetService.create(projet);
+  	create(id:string,titre: string, admin:string, description:string){
+      let participant: Array<Object> = ["josaphat", "toto"];
+      //admin=this.currentUser;
+      this.model = { id,titre, admin,description,participant };
+      this.projetService.create(this.model);
   	}
 
 //Modifier un projet
