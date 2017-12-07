@@ -37,7 +37,7 @@ export class ProjetService {
   oneSelf() {
     let tabProjet: Observable<User[]>;
     this.userCollection = this.afs.collection('User', ref => {
-        return ref.where('username', '==', 'josaphat')
+        return ref.where('username', '==', this.currentUser)
     });
     this.projetList =  this.userCollection.valueChanges();
     return this.projetList;
