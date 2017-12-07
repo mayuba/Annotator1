@@ -32,8 +32,6 @@ import { MesProjetComponent } from './components/mes-projet/mes-projet.component
 import { GestionCategoriesComponent } from './components/gestionCategories/gestionCategories.component';
 import { GestionCorpusComponent } from './components/gestionCorpus/gestionCorpus.component';
 //importation des services
-import {ProjetService} from './services/index'
-//importation des services
 import {ProjetService} from './services/index';
 import { TexteComponent } from './components/texte/texte.component'
 
@@ -63,7 +61,7 @@ export const firebaseConfig = {
     MesProjetComponent,
     DialogOverviewExampleDialog,
     GestionCategoriesComponent,
-    GestionCorpusComponent
+    GestionCorpusComponent,
     TexteComponent
   ],
   imports: [
