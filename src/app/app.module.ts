@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+//New imports to update based on AngularFire2 version 4
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterComponent } from './components/register/register.component';
@@ -32,6 +33,9 @@ import { GestionCategoriesComponent } from './components/gestionCategories/gesti
 import { GestionCorpusComponent } from './components/gestionCorpus/gestionCorpus.component';
 //importation des services
 import {ProjetService} from './services/index'
+//importation des services
+import {ProjetService} from './services/index';
+import { TexteComponent } from './components/texte/texte.component'
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
@@ -60,6 +64,7 @@ export const firebaseConfig = {
     DialogOverviewExampleDialog,
     GestionCategoriesComponent,
     GestionCorpusComponent
+    TexteComponent
   ],
   imports: [
     BrowserModule,
@@ -72,8 +77,6 @@ export const firebaseConfig = {
     HttpModule,
     Routing,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule
