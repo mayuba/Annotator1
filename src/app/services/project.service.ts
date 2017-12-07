@@ -17,7 +17,7 @@ export class ProjetService {
   projet: Array<string>;
   user: Observable<User[]>;
 
-  projetList: Observable<User[]>;
+  projetList: Observable<Projet[]>;
 
   private ProjetCollection: AngularFirestoreCollection<Projet>;
   private userCollection: AngularFirestoreCollection<User>;
@@ -39,10 +39,8 @@ export class ProjetService {
   //recuperer la liste de projets d'un utilisateur
   oneSelf() {
     let tabProjet: Observable<User[]>;
-    this.userCollection = this.afs.collection('User', ref => {
-        return ref.where('username', '==', this.currentUser)
-    });
-    this.projetList =  this.userCollection.valueChanges();
+
+    this.projetList =  this.ProjetCollection.valueChanges();
     return this.projetList;
   }
   //Obtention de la liste de tous les projets
