@@ -1,4 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import {ProjetService} from 'app/services/index';
+import{Observable} from 'rxjs/Observable';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
+export interface User {
+  username: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  projet: Array<string>;
+}
 
 @Component({
   selector: 'app-mes-projet',
@@ -6,17 +17,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mes-projet.component.css']
 })
 export class MesProjetComponent implements OnInit {
-  
-  myprojects: File[]=[];
+
+  //myprojects: File[]=[];
   model: any = {};
+  currentUser:string;
+  projet: Array<string>;
+  //Allprojets: Observable<Projet[]>;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private projetService: ProjetService) {
+    //this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.model=this.projetService.oneSelf("josaphat");
   }
 
+  ngOnInit() {
+
+  }
+  //chargement de la liste de projets du courant utilisateur
+  load() {
+       //this.projet.oneSelf(this.currentUser).subscribe(myprojects => { this.myprojects = myprojects; });
+    }
+  search(word:string){
+
+  }
   edit(){ }
   IsAdmin(){}
   select(id: string){}
-  
+  //generateArray converti une liste en object
+  generateArray(obj){
+    return Object.keys(obj).map((key)=>{ return {key:key, value:obj[key]}});
+}
 }
