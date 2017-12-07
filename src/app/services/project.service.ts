@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
+import {AngularFirestore,
+        AngularFirestoreCollection,
+        AngularFirestoreDocument
+       } from 'angularfire2/firestore';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../models/user.model';
 import {Projet} from '../models/projet.model';
@@ -44,8 +47,19 @@ export class ProjetService {
   }
   //Obtention de la liste de tous les projets
   getAll(){
-    return this.All;
-  }
+  return this.afs
+             .collection('Projet', ref => ref
+             .orderBy('titre'))
+             .valueChanges();
+}
+//cree requete sur firebase pour recuperer au moins
+//4 element du mot de recherche
+firequery(start, end) {
+  return this.afs
+             .collection('Projet', ref => ref.limit(4)
+             .orderBy('titre').startAt(start).endAt(end))
+             .valueChanges();
+}
   //Obtention du modèle du projet à partir de son id
   getModel(id:number){
 
