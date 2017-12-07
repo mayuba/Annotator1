@@ -24,6 +24,7 @@ import { RegisterComponent ,
          AdminComponent ,
          HomeComponent ,
          ProjectComponent ,
+         ProjectsComponent ,
          DialogOverviewExampleDialog ,
          PageNotFoundComponent ,
          GestionRoleComponent,
@@ -34,7 +35,6 @@ import { RegisterComponent ,
        } from './components/index';
 //importation des services
 import {ProjetService} from './services/index';
-
 export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
   authDomain: "annotateur-9b363.firebaseapp.com",
@@ -55,6 +55,7 @@ export const firebaseConfig = {
     AlertDirective,
     HomeComponent,
     ProjectComponent,
+    ProjectsComponent,
     PageNotFoundComponent,
     HeaderComponent,
     GestionRoleComponent,
@@ -75,7 +76,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule.enablePersistence()
   ],
   providers: [ProjetService],
   bootstrap: [AppComponent],
