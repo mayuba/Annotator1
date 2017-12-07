@@ -2,7 +2,7 @@
 //
 
 import { Routes, RouterModule } from '@angular/router';
-//import {RouterTestingModule} from "@angular/router/testing";
+import {RouterTestingModule} from "@angular/router/testing";
 
 
 //import { AuthGuard } from './_guards/index';
