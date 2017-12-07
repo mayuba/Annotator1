@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
-import{Observable} from 'rxjs/Observable';
-import{User} from '../models/user.model'
-import {Projet} from '../models/projet.model'
-import {  FirebaseListObservable } from 'angularfire2/database-deprecated';
+import {Observable} from 'rxjs/Observable';
+import {User} from '../models/user.model';
+import {Projet} from '../models/projet.model';
 import { Subject } from 'rxjs/Subject';
+
 
 @Injectable()
 export class ProjetService {
@@ -26,11 +26,7 @@ export class ProjetService {
     this.selfProject= this.userCollection.valueChanges();
     this.All = this.ProjetCollection.valueChanges();
 
-  constructor() {
-  }
-  //recuperer la liste de projets d'un utilisateur
-  oneSelf(user: string){
-   return this.selfProject;
+
   }
 
 
@@ -45,7 +41,6 @@ export class ProjetService {
     this.projetList =  this.userCollection.valueChanges();
     return this.projetList;
   }
-
   //Obtention de la liste de tous les projets
   getAll(){
   return this.All;
