@@ -10,13 +10,14 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class MesProjetComponent implements OnInit {
 
-
+  //myprojects: File[]=[];
   model: any = {};
   currentUser:string;
   projet: Array<string>;
+  //Allprojets: Observable<Projet[]>;
 
   constructor(private projetService: ProjetService) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    //this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.model=this.projetService.oneSelf("josaphat");
   }
 
@@ -25,7 +26,7 @@ export class MesProjetComponent implements OnInit {
   }
   //chargement de la liste de projets du courant utilisateur
   load() {
-       this.projet.oneSelf(this.currentUser).subscribe(myprojects => { this.myprojects = myprojects; });
+       //this.projet.oneSelf(this.currentUser).subscribe(myprojects => { this.myprojects = myprojects; });
     }
   search(word:string){
 
