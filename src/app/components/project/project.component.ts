@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {NgForm} from '@angular/forms';
+import {GestionCategoriesComponent} from '../gestionCategories/gestionCategories.component';
+import {GestionCorpusComponent} from '../gestionCorpus/gestionCorpus.component';
 import {NgForm} from '@angular/forms';
 //pour l'ajout de boutons etc..
 import {MatButtonModule} from '@angular/material';
+
 
 @Component({
   selector: 'app-project',
@@ -10,15 +15,63 @@ import {MatButtonModule} from '@angular/material';
 })
 export class ProjectComponent implements OnInit {
 
+  categoryName: string;
+  categoryColor: string;
+
 	model: any = {};
 	Projects: File[]=[];
  	Corpus: File[]=[];
 
-  constructor() { }
-
+  constructor(public dialog: MatDialog) { }
   ngOnInit() {
   }
-//loadProjects pour le chargement du projet
+
+  openCorpusDialog(): void{
+    let dialogRef = this.dialog.open(GestionCorpusComponent, {
+      width: '300px',
+      data: { categoryName: this.categoryName, categoryColor: this.categoryColor }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.categoryColor = result;
+    });
+   }
+
+
+  openCategoriesDialog(): void{
+    let dialogRef = this.dialog.open(GestionCategoriesComponent, {
+      width: '300px',
+      data: { categoryName: this.categoryName, categoryColor: this.categoryColor }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.categoryColor = result;
+    });
+   }
+ }
+
+   @Component({
+  selector: 'dialog-overview-example-dialog',
+  template: `<h3> says:</h3>`
+  })
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+
+
+
+/*//loadProjects pour le chargement du projet
 
   	loadProjects(){
 
@@ -56,4 +109,4 @@ export class ProjectComponent implements OnInit {
 
   	}
 
-}
+}*/

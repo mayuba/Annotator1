@@ -3,4 +3,6 @@ export class User {
   password: string;
   firstName: string;
   lastName: string;
+  projet: Array<string>;
+  info: string;
 }

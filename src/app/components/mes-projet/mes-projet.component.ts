@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProjetService} from 'app/services/index';
+import{Observable} from 'rxjs/Observable';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-mes-projet',
@@ -8,12 +10,14 @@ import {ProjetService} from 'app/services/index';
 })
 export class MesProjetComponent implements OnInit {
 
-  myprojects: File[]=[];
+
   model: any = {};
   currentUser:string;
+  projet: Array<string>;
 
-  constructor(private projet: ProjetService) {
+  constructor(private projetService: ProjetService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.model=this.projetService.oneSelf("josaphat");
   }
 
   ngOnInit() {
@@ -29,5 +33,8 @@ export class MesProjetComponent implements OnInit {
   edit(){ }
   IsAdmin(){}
   select(id: string){}
-
+  //generateArray converti une liste en object
+  generateArray(obj){
+    return Object.keys(obj).map((key)=>{ return {key:key, value:obj[key]}});
+}
 }

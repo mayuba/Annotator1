@@ -1,3 +1,28 @@
-<p>
-  home works!
-</p>
+<div class="titre">
+  <h2>Bienvenue "nomUsager"</h2>
+
+</div>
+
+
+
+  <div class="column">
+    <mat-card>
+      <mat-toolbar><h3>Vos projets</h3></mat-toolbar>
+        <mat-card-content>
+           <mat-list>
+<!-- Ici une loop devra être mit pour aller chercher les projets-->
+            <mat-list-item>Projet 1  <p><button class="ButtonModif" mat-button (click)="editProject()">Modifier</button></p></mat-list-item>
+            <mat-list-item>Projet 2  <p><button class="ButtonModif" mat-button (click)="editProject()">Modifier</button></p></mat-list-item>
+            <mat-list-item>Projet 3  <p><button class="ButtonModif" mat-button (click)="editProject()">Modifier</button></p></mat-list-item>
+            <mat-list-item>Projet 4  <p><button class="ButtonModif" mat-button (click)="editProject()">Modifier</button></p></mat-list-item>
+            <mat-list-item><p><button class="ButtonCreate" mat-button (click)="editProject()">Créer nouveau pro</button></p></mat-list-item>
+           </mat-list>
+
+      </mat-card-content>
+      </mat-card>
+  </div>
+  <div class="column">
+    <mat-card>
+          <mat-toolbar><h3>Trouver un projet</h3></mat-toolbar>
+      </mat-card>
+  </div>

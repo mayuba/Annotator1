@@ -2,7 +2,7 @@
 //
 
 import { Routes, RouterModule } from '@angular/router';
-import {RouterTestingModule} from "@angular/router/testing";
+//import {RouterTestingModule} from "@angular/router/testing";
 
 
 //import { AuthGuard } from './_guards/index';
@@ -19,15 +19,16 @@ import { ProjectComponent } from './components/project/project.component';
 import { GestionRoleComponent } from './components/gestion-role/gestion-role.component';
 import { GestionCategoriesComponent } from './components/gestionCategories/gestionCategories.component';
 
+
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: MesProjetComponent },
+  { path: 'mesprojet', component: MesProjetComponent },
   { path: 'annotation', component: AnnotationComponent },
   { path: 'projet', component: ProjectComponent },
-//  { path: 'corpus', component: GestionCorpusComponent },
-//{ path: 'categories', component: GestionCategoriesComponent/*, outlet: 'popup'*/ },
+  { path: 'corpus', component: GestionCorpusComponent },
+  { path: 'categories', component: GestionCategoriesComponent},
   { path: 'roles', component: GestionRoleComponent },
   //  { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' },
 //  { path: 'logout', component: HomeWelcomeComponent },
@@ -38,4 +39,5 @@ const appRoutes: Routes = [
 ];
 
 export const Routing = RouterModule.forRoot(appRoutes);
+
 export const RoutingTest = RouterTestingModule.withRoutes(appRoutes);
