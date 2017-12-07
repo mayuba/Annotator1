@@ -30,7 +30,11 @@ export class MesProjetComponent implements OnInit {
   search(word:string){}
   edit(){ }
   IsAdmin(){}
-  select(id: string){}
+  select(name: string){
+    //creation d'un token courant projet
+    //qui contient le projet qui sera consulter
+    localStorage.setItem('currentProjet',JSON.stringify(name));
+  }
   //generateArray converti une liste en object
   generateArray(obj){
     return Object.keys(obj)
