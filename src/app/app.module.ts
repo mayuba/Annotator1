@@ -4,9 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import { NgModule } from '@angular/core';
 import { Routing } from './app.routing';
-import {MatButtonModule,MatToolbarModule, MatListModule, MatGridListModule,
-MatMenuModule, MatStepperModule, MatCardModule, MatTabsModule, MatIconModule,
-MatInputModule, MatFormFieldModule, MatSelectModule, MatDialogModule} from '@angular/material';
+import { MaterialModule } from './material.module';
 import { FileDropModule } from 'ngx-file-drop';
 
 import { AppComponent } from './app.component';
@@ -68,9 +66,7 @@ export const firebaseConfig = {
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatButtonModule,MatToolbarModule, MatListModule, MatGridListModule,
-    MatMenuModule, MatStepperModule, MatCardModule, MatTabsModule, MatIconModule,
-    MatInputModule, MatFormFieldModule, MatSelectModule, MatDialogModule,
+    MaterialModule,
     FileDropModule,
     HttpModule,
     Routing,
