@@ -17,8 +17,7 @@ export class MesProjetComponent implements OnInit {
   //Allprojets: Observable<Projet[]>;
 
   constructor(private projetService: ProjetService) {
-    //this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.model=this.projetService.oneSelf("josaphat");
+    this.load();
   }
 
   ngOnInit() {
@@ -26,16 +25,15 @@ export class MesProjetComponent implements OnInit {
   }
   //chargement de la liste de projets du courant utilisateur
   load() {
-       //this.projet.oneSelf(this.currentUser).subscribe(myprojects => { this.myprojects = myprojects; });
-    }
-  search(word:string){
-
+    this.model=this.projetService.oneSelf();
   }
+  search(word:string){}
   edit(){ }
   IsAdmin(){}
   select(id: string){}
   //generateArray converti une liste en object
   generateArray(obj){
-    return Object.keys(obj).map((key)=>{ return {key:key, value:obj[key]}});
-}
+    return Object.keys(obj)
+      .map((key)=>{ return {key:key, value:obj[key]}});
+  }
 }
