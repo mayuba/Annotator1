@@ -7,18 +7,22 @@ import {RouterTestingModule} from "@angular/router/testing";
 
 //import { AuthGuard } from './_guards/index';
 //import { ComposeMessageComponent } from './compose-message.component';
-import { HomeComponent } from './components/home/home.component';
 //import { HomeWelcomeComponent } from './home-welcome/index';
-import { LoginComponent } from './components/login/login.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { MesProjetComponent } from './components/mes-projet/mes-projet.component';
-import { GestionCorpusComponent } from './components/gestionCorpus/gestionCorpus.component';
-import { AnnotationComponent } from './components/annotation/annotation.component';
-import { RegisterComponent } from './components/register/register.component';
-import { ProjectComponent } from './components/project/project.component';
-import { GestionRoleComponent } from './components/gestion-role/gestion-role.component';
-import { GestionCategoriesComponent } from './components/gestionCategories/gestionCategories.component';
-
+import { RegisterComponent ,
+         LoginComponent,
+         AnnotationComponent,
+         AdminComponent ,
+         HomeComponent ,
+         ProjectComponent ,
+         ProjectsComponent ,
+         DialogOverviewExampleDialog ,
+         PageNotFoundComponent ,
+         GestionRoleComponent,
+         MesProjetComponent ,
+         GestionCategoriesComponent ,
+         GestionCorpusComponent,
+         TexteComponent
+       } from './components/index';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,6 +31,7 @@ const appRoutes: Routes = [
   { path: 'mesprojet', component: MesProjetComponent },
   { path: 'annotation', component: AnnotationComponent },
   { path: 'projet', component: ProjectComponent },
+  { path: 'projets', component: ProjectsComponent },
   { path: 'corpus', component: GestionCorpusComponent },
   { path: 'categories', component: GestionCategoriesComponent},
   { path: 'roles', component: GestionRoleComponent },
