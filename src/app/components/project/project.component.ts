@@ -3,7 +3,6 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {NgForm} from '@angular/forms';
 import {GestionCategoriesComponent} from '../gestionCategories/gestionCategories.component';
 import {GestionCorpusComponent} from '../gestionCorpus/gestionCorpus.component';
-import {NgForm} from '@angular/forms';
 //pour l'ajout de boutons etc..
 import {MatButtonModule} from '@angular/material';
 
