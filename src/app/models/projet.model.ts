@@ -4,6 +4,6 @@ export class Projet {
     admin: string;
     description: string;
     //corpus: Array<string>;
-    participant: Array<string>;
+    Annotateurs: Array<string>;
     Annotations: Array<string>;
 }
