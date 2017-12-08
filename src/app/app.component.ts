@@ -11,7 +11,7 @@ export class AppComponent {
   }
   ngOnInit() {
     //generer faux token pour test utilisateur
-    localStorage.setItem('currentUser',JSON.stringify("josaphat"));
+    localStorage.setItem('currentUser',JSON.stringify("toto"));
   }
 
 }
