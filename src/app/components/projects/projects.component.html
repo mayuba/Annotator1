@@ -10,16 +10,17 @@
       </div>
     </form>
   </div>
+  <mat-card-content >
+    <mat-nav-list *ngFor="let projet of projets | slice:0:9">
+      <mat-list-item>
+        <a matLine [routerLink]="['/projet']" >
+        {{projet.titre}}
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-card-content>
 </div>
-<mat-card-content >
-  <mat-nav-list *ngFor="let projet of projets | slice:0:9">
-    <mat-list-item>
-      <a matLine [routerLink]="['/projet']" >
-      {{projet.titre}}
-      </a>
-    </mat-list-item>
-  </mat-nav-list>
-</mat-card-content>
+
 <div *ngIf="projets?.length < 1">
   <p>Sorry, no projets found</p>
 </div>
