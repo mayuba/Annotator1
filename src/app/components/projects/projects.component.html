@@ -14,7 +14,7 @@
 <mat-card-content >
   <mat-nav-list *ngFor="let projet of projets | slice:0:9">
     <mat-list-item>
-      <a matLine href="{{ projet.titre }}" target="_blank">
+      <a matLine [routerLink]="['/projet']" >
       {{projet.titre}}
       </a>
     </mat-list-item>
