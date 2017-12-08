@@ -17,11 +17,12 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FooterComponent } from './shared/component/footer/footer.component';
 import { AlertDirective } from './directives/alert.directive';
 import { HeaderComponent } from './shared/component/header/header.component';
-
+import { AuthGuard } from './guard/auth.guard';
 import { RegisterComponent ,
          LoginComponent,
          AnnotationComponent,
          AdminComponent ,
+         IndexComponent,
          HomeComponent ,
          ProjectComponent ,
          SearchProjetComponent ,
@@ -51,6 +52,7 @@ export const firebaseConfig = {
     LoginComponent,
     AnnotationComponent,
     AdminComponent,
+    IndexComponent,
     FooterComponent,
     AlertDirective,
     HomeComponent,
@@ -78,7 +80,10 @@ export const firebaseConfig = {
     AngularFireAuthModule,
     AngularFirestoreModule.enablePersistence()
   ],
-  providers: [ProjetService],
+  providers: [
+    ProjetService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent],
   entryComponents: [GestionCategoriesComponent, GestionCorpusComponent]
 })
