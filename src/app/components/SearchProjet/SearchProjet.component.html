@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="row">
+<div >
+  <mat-card-content >
   <h2>Chercher un projet</h2>
     <form class="classNameHere" role="search">
       <div class="input-group">
@@ -9,18 +9,15 @@
         </div>
       </div>
     </form>
-  </div>
-  <mat-card-content >
-    <mat-nav-list *ngFor="let projet of projets | slice:0:9">
+    <mat-nav-list *ngFor="let projet of projets">
       <mat-list-item>
         <a matLine [routerLink]="['/projet']" >
         {{projet.titre}}
-        </a>
+      </a><p align="left">{{projet.description}}</p>
       </mat-list-item>
     </mat-nav-list>
+    <div *ngIf="projets?.length < 1">
+      <p>Sorry, no projets found</p>
+    </div>
   </mat-card-content>
-</div>
-
-<div *ngIf="projets?.length < 1">
-  <p>Sorry, no projets found</p>
 </div>
