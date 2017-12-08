@@ -3,7 +3,7 @@
       <mat-toolbar><h3>Mes projets</h3></mat-toolbar>
       <mat-card-content >
         <div  *ngFor="let item of model | async">
-          <div *ngFor="let each of generateArray(item.participant)">
+          <div *ngFor="let each of generateArray(item.Annotateurs)">
             <mat-nav-list *ngIf="currentUserTrue(each.value)">
               <mat-list-item>
                 <a matLine (click)="select(item.titre)" [routerLink]="['/projet']">{{item.titre}}</a>
