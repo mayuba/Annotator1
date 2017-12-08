@@ -19,8 +19,8 @@
   <mat-card>
   <mat-card-content >
     <mat-nav-list *ngFor="let projet of projets">
-      <mat-list-item>
-        <a matLine (click)="select(projet.titre)" [routerLink]="['/projet']" >
+      <mat-list-item (click)="select(projet.titre)" [routerLink]="['/projet']">
+        <a matLine   >
         {{projet.titre}}
       </a><p align="left">{{projet.description}}</p>
       </mat-list-item>

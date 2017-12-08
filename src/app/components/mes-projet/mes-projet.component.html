@@ -9,9 +9,9 @@
       <mat-card-content >
         <div  *ngFor="let item of model | async">
           <div *ngFor="let each of generateArray(item.Annotateurs)">
-            <mat-nav-list *ngIf="currentUserTrue(each.value)">
+            <mat-nav-list (click)="select(item.titre)" [routerLink]="['/projet']" *ngIf="currentUserTrue(each.value)">
               <mat-list-item>
-                <a matLine (click)="select(item.titre)" [routerLink]="['/projet']">{{item.titre}}</a>
+                <a matLine >{{item.titre}}</a>
                 <div *ngIf="currentUserTrue(item.admin)">
                  <button color="primary" mat-icon-button (click)="select(each.titre)" [routerLink]="['/projet']">
                    Modifier
