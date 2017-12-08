@@ -1,6 +1,9 @@
 <div >
+  <mat-card>
   <mat-card-content >
-  <h2>Chercher un projet</h2>
+
+  <h2>Chercher un projet: {{projets?.length}} projets disponible</h2>
+  <mat-toolbar color="primary">
     <form class="classNameHere" role="search">
       <div class="input-group">
       <input [(ngModel)]="searchterm" (keyup)="search($event)" type="text" class="form-control" placeholder="Chercher" name="srch-term" id="srch-term">
@@ -9,15 +12,22 @@
         </div>
       </div>
     </form>
+    </mat-toolbar>
+  </mat-card-content>
+  </mat-card>
+  <br>
+  <mat-card>
+  <mat-card-content >
     <mat-nav-list *ngFor="let projet of projets">
       <mat-list-item>
-        <a matLine [routerLink]="['/projet']" >
+        <a matLine (click)="select(projet.titre)" [routerLink]="['/projet']" >
         {{projet.titre}}
       </a><p align="left">{{projet.description}}</p>
       </mat-list-item>
     </mat-nav-list>
+  </mat-card-content >
+</mat-card>
     <div *ngIf="projets?.length < 1">
       <p>Sorry, no projets found</p>
     </div>
-  </mat-card-content>
 </div>
