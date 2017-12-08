@@ -2,7 +2,53 @@
   <nav class="navbar navbar-static-top navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" >Annotator 1</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" (click)="isCollapsed = !isCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="glyphicon glyphicon-align-justify"></span>
+        </button>
+        <button type="button" class="navbar-toggle">
+          <span class="glyphicon glyphicon-user couleur-blanc medium" aria-hidden="true"></span>
+        </button>
+        <a class="navbar-brand" [routerLink]="['']">Annotator 1</a>
+      </div>
+
+      <div class="navbar-toggleable-xs navbar-collapse" id="bd-main-nav"
+        [attr.aria-expanded]="!isCollapsed" [ngClass]="{collapse: isCollapsed}">
+        <div class=" navbar-left">
+          <ul class="nav navbar-nav ml-auto">
+            <li (click)="isCollapsed = false" routerLinkActive="active">
+              <a class="navbar-left" [routerLink]="['']">{{'Accueil'}}</a>
+            </li>
+            <li *ngIf="isUser()" (click)="isCollapsed = true" routerLinkActive="active">
+              <a [routerLink]="['/create']" routerLinkActive="active">
+                <span class="{{''}}"></span>Create project</a>
+            </li>
+            <li *ngIf="!isUser()" (click)="Fauxlogin()" >
+              <a class="navbar-left" href="">{{'FauxLogin'}}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-right">
+          <ul class="nav navbar-nav ml-auto">
+            <li *ngIf="!isUser()" (click)="isCollapsed = true" routerLinkActive="active">
+              <a [routerLink]="['/login']" routerLinkActive="active">
+                <span class="{{''}}"></span>Login</a>
+            </li>
+            <li *ngIf="!isUser()" (click)="isCollapsed = true" routerLinkActive="active">
+              <a [routerLink]="['/register']" routerLinkActive="active">
+                <span class="{{'glyphicon glyphicon-user'}}"></span>Sign Up</a>
+            </li>
+            <li *ngIf="isUser()" (click)="logout();isCollapsed = true" routerLinkActive="active">
+              <a href="">
+                <span class="{{''}}"></span>Logout</a>
+            </li>
+            <li *ngIf="isUser()" (click)="isCollapsed = true" routerLinkActive="active">
+
+               <a [routerLink]="['profile']" routerLinkActive="active">
+              <span class="{{''}}"></span><i class="fa fa-user"></i>{{username}}</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
