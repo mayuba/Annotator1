@@ -11,3 +11,4 @@ export * from './gestionCategories/gestionCategories.component';
 export * from './gestionCorpus/gestionCorpus.component';
 export * from './texte/texte.component'
 export * from './SearchProjet/SearchProjet.component'
+export * from './index/index.component'
