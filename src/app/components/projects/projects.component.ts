@@ -21,18 +21,7 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-projects',
-  //templateUrl: './project.component.html',
-  template: `
-  <input type="text" [(ngModel)]="searchterm" (keydown)="search($event)">
-    <ul *ngFor="let projet of projets">
-      <li>{{projet.titre}}</li>
-    </ul>
-<div *ngIf="projets?.length < 1">
-  <p>Sorry, no projets found</p>
-</div>
-
-  <router-outlet></router-outlet>
-  `,
+  templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
 
