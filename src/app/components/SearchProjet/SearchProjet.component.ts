@@ -102,7 +102,11 @@ export class SearchProjetComponent implements OnInit {
       this.model = { id,titre, admin,description,Annotateurs };
       this.projetService.create(this.model);
   	}
-
+    select(name: string){
+      //creation d'un token courant projet
+      //qui contient le projet qui sera consulter
+      localStorage.setItem('currentProjet',JSON.stringify(name));
+    }
 //Modifier un projet
   	edit(projet: string){
 
