@@ -47,8 +47,15 @@ firequery(start, end) {
              .valueChanges();
 }
   //Obtention du modèle du projet à partir de son id
-  getModel(id:number){
-
+  getModel(id: string){
+    let tabProjet: Observable<User[]>;
+    this.userCollection = this.afs
+        .collection('Projet', ref => {
+          return ref.where('id', '==', id)
+          this.projetList =  this.ProjetCollection.valueChanges();
+    });
+    this.projetList =  this.userCollection.valueChanges();
+    return this.projetList;
   }
 
   //Création d'un nouveau projet
