@@ -35,7 +35,10 @@ import { RegisterComponent ,
          TexteComponent
        } from './components/index';
 //importation des services
-import {ProjetService} from './services/index';
+import {ProjetService,
+        UsersService,
+        AuthentificationService
+       } from './services/index';
 export const firebaseConfig = {
   apiKey: "AIzaSyBxyDRCUs3jzK5sfSYj6443htnUaqKBp4w",
   authDomain: "annotateur-9b363.firebaseapp.com",
@@ -82,7 +85,9 @@ export const firebaseConfig = {
   ],
   providers: [
     ProjetService,
-    AuthGuard
+    UsersService,
+    AuthGuard,
+    AuthentificationService
   ],
   bootstrap: [AppComponent],
   entryComponents: [GestionCategoriesComponent, GestionCorpusComponent]

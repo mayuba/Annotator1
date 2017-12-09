@@ -2,12 +2,12 @@
   <h2>Connexion</h2>
   <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
     <div class="form-group">
-      <label for="username">Nom d'utilisateur</label>
-      <input type="text" class="form-control" name="username" required/>
+      <label for="email">E-mail</label>
+      <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required/>
     </div>
     <div class="form-group">
       <label for="password">Mot de passe</label>
-      <input type="text" class="form-control" name="password" required/>
+      <input type="text" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required/>
     </div>
     <div class="form-group">
         <button class="btn btn-primary">Login</button>
