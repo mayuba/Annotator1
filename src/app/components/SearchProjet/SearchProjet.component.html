@@ -16,17 +16,17 @@
   </mat-card-content>
   </mat-card>
   <br>
-  <mat-card>
-  <mat-card-content >
+
+
     <mat-nav-list *ngFor="let projet of projets">
+    <mat-card>
       <mat-list-item (click)="select(projet.titre)" [routerLink]="['/projet']">
         <a matLine   >
         {{projet.titre}}
       </a><p align="left">{{projet.description}}</p>
       </mat-list-item>
+    </mat-card>
     </mat-nav-list>
-  </mat-card-content >
-</mat-card>
     <div *ngIf="projets?.length < 1">
       <p>Sorry, no projets found</p>
     </div>
