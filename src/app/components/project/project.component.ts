@@ -14,14 +14,18 @@ import {MatButtonModule} from '@angular/material';
 })
 export class ProjectComponent implements OnInit {
 
+
   categoryName: string;
   categoryColor: string;
 
 	model: any = {};
 	Projects: File[]=[];
  	Corpus: File[]=[];
-
-  constructor(public dialog: MatDialog) { }
+  currentProjet: string;
+  
+  constructor(public dialog: MatDialog) {
+  this.currentProjet = JSON.parse(localStorage.getItem('currentProjet'));
+    }
   ngOnInit() {
   }
 
