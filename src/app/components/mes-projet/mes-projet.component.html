@@ -1,14 +1,26 @@
 <div class="column" >
   <mat-card >
-      <mat-toolbar><h3>Mes projets</h3></mat-toolbar>
-      <mat-card-content>
-        <mat-nav-list *ngFor="let item of model | async">
-          <mat-list-item *ngFor="let each of generateArray(item.projet)">
-             <a matLine (click)="select(each.value)" [routerLink]="['/projet']">{{each.value}}</a>
-             <button mat-icon-button (click)="showInfo(link)">
-             </button>
-          </mat-list-item>
-        </mat-nav-list>
+    <mat-card-content >
+      <mat-toolbar color="primary"><h3>Mes projets</h3></mat-toolbar>
+      </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-card >
+      <mat-card-content >
+        <div  *ngFor="let item of model | async">
+          <div *ngFor="let each of generateArray(item.Annotateurs)">
+            <mat-nav-list (click)="select(item.titre)" [routerLink]="['/projet']" *ngIf="currentUserTrue(each.value)">
+              <mat-list-item>
+                <a matLine >{{item.titre}}</a>
+                <div *ngIf="currentUserTrue(item.admin)">
+                 <button color="primary" mat-icon-button (click)="select(each.titre)" [routerLink]="['/projet']">
+                   Modifier
+                 </button>
+                </div>
+             </mat-list-item>
+           </mat-nav-list>
+         </div>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

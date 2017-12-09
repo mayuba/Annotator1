@@ -2,7 +2,8 @@ export class Projet {
     id: string;
     titre: string;
     admin: string;
-    corpus: Array<string>;
-    annotateurs: Array<string>;
+    description: string;
+    //corpus: Array<string>;
+    Annotateurs: Array<string>;
     Annotations: Array<string>;
 }

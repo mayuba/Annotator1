@@ -10,8 +10,6 @@ export class AppComponent {
   constructor() {
   }
   ngOnInit() {
-    //generer faux token pour test utilisateur
-    localStorage.setItem('currentUser',JSON.stringify("josaphat"));
   }
 
 }

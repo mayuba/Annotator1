@@ -10,4 +10,5 @@ export * from './mes-projet/mes-projet.component';
 export * from './gestionCategories/gestionCategories.component';
 export * from './gestionCorpus/gestionCorpus.component';
 export * from './texte/texte.component'
-export * from './projects/projects.component'
+export * from './SearchProjet/SearchProjet.component'
+export * from './index/index.component'

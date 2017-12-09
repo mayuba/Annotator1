@@ -14,14 +14,25 @@ export class MesProjetComponent implements OnInit {
   model: any = {};
   currentUser:string;
   projet: Array<string>;
-  //Allprojets: Observable<Projet[]>;
 
   constructor(private projetService: ProjetService) {
     this.load();
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+
   }
 
   ngOnInit() {
 
+  }
+//verifie si l'utilisateur est le courant utilisateur
+//pour permettre de lui donner les privileges selon son role
+//aussi afficher que les projets qu'il participe
+  currentUserTrue(User: string){
+     if(User == this.currentUser)
+      return true;
+     else
+      return false;
   }
   //chargement de la liste de projets du courant utilisateur
   load() {
