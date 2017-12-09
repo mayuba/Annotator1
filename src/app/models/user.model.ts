@@ -1,8 +1,7 @@
 export class User {
   username: string;
   password: string;
-  firstName: string;
-  lastName: string;
+  email: string;
   projet: Array<string>;
-  info: string;
+  admin: Array<string>;
 }
