@@ -56,7 +56,7 @@ firequery(start, end) {
     });
     this.projetList =  this.ProjetCollection.valueChanges();
     return this.projetList;
-    /*
+    */
   }
 
   //Création d'un nouveau projet
