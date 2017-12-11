@@ -29,6 +29,9 @@
             <li *ngIf="!isUser()" (click)="Fauxlogin()" >
               <a class="navbar-left" href="">{{'FauxLogin'}}</a>
             </li>
+            <li>
+              <a class="navbar-left" [routerLink]="['search']">{{'Chercher Projet'}}</a>
+            </li>
           </ul>
         </div>
         <div class="navbar-right">
