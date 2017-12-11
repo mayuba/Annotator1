@@ -20,3 +20,10 @@ p {
 .example-full-width {
   width: 100%;
 }
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    /* position: relative; */
+    padding: 0px;
+    border-radius: 2px;
+}
