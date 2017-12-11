@@ -1,10 +1,10 @@
 //Inspiré du code d'app.routing.ts du projet UQO-Annotator
 //
-
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {RouterTestingModule} from "@angular/router/testing";
 import { AuthGuard } from './guard/auth.guard';
-
+import {AppPreload} from './app.preload';
 //import { AuthGuard } from './_guards/index';
 //import { ComposeMessageComponent } from './compose-message.component';
 //import { HomeWelcomeComponent } from './home-welcome/index';
@@ -48,7 +48,23 @@ const appRoutes: Routes = [
   // otherwise page not found
   { path: '**', component: PageNotFoundComponent }
 ];
+@NgModule({
+  imports: [
+    [ RouterModule.forRoot(appRoutes,
+      {
+        enableTracing: false, // <-- debugging purposes only
+        preloadingStrategy: AppPreload,
 
-export const Routing = RouterModule.forRoot(appRoutes);
+      }) ]
+  ],
+  exports: [
+    RouterModule
+  ],
+  providers: [
+    AppPreload
+  ]
+})
+export class AppRouting { }
+//export const Routing = RouterModule.forRoot(appRoutes);
 
 export const RoutingTest = RouterTestingModule.withRoutes(appRoutes);

@@ -3,7 +3,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import { NgModule } from '@angular/core';
-import { Routing } from './app.routing';
+import { AppRouting } from './app.routing';
 import { MaterialModule } from './material.module';
 import { FileDropModule } from 'ngx-file-drop';
 
@@ -77,7 +77,7 @@ export const firebaseConfig = {
     MaterialModule,
     FileDropModule,
     HttpModule,
-    Routing,
+    AppRouting,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
