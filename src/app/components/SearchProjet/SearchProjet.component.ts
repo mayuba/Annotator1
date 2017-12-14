@@ -43,7 +43,7 @@ export class SearchProjetComponent implements OnInit {
     searchTerm$ = new Subject<string>();
 
     currentUser:string;
-
+    showSpinner = true;
 
   constructor(private projetService: ProjetService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -52,7 +52,8 @@ export class SearchProjetComponent implements OnInit {
   ngOnInit() {
     //this.fauxData();
     //recuperation de tout le projet
-    this.projetService.getAll().subscribe((projets) => {
+     this.projetService.getAll().subscribe((projets) => {
+     this.showSpinner = false;
      this.all = projets;
      this.projets = this.all;
    })
@@ -60,7 +61,7 @@ export class SearchProjetComponent implements OnInit {
    Observable.combineLatest(this.startobs, this.endobs)
              .subscribe((value) => {this.projetService
              .firequery(value[0], value[1])
-             .subscribe((projets) => {this.projets = projets;})
+             .subscribe((projets) => {this.showSpinner = false; this.projets = projets;})
                                    })
    }
 
@@ -87,6 +88,7 @@ export class SearchProjetComponent implements OnInit {
 
    }
    search($event) {
+    this.showSpinner = true;
     let q = $event.target.value;
     if (q != '') {
       this.startAt.next(q);

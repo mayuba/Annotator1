@@ -28,6 +28,7 @@
     </mat-card>
     </mat-nav-list>
     <div *ngIf="projets?.length < 1">
-      <p>Sorry, no projets found</p>
+      <mat-progress-bar *ngIf="showSpinner" mode="indeterminate"></mat-progress-bar>
+      <p *ngIf="!showSpinner">Sorry, no projets found</p>
     </div>
 </div>
