@@ -46,7 +46,7 @@ export class MesProjetComponent implements OnInit {
     //qui contient le projet qui sera consulter
     localStorage.setItem('currentProjet',JSON.stringify(name));
   }
-  //generateArray converti une liste en object
+  //generateArray pour recuperer les atribut d'un object
   generateArray(obj){
     return Object.keys(obj)
       .map((key)=>{ return {key:key, value:obj[key]}});
