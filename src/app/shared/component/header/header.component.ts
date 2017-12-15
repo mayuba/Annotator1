@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import {AuthentificationService } from '../../../services/index'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,27 +9,35 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
      isCollapsed = true;
-     username:string;
-     currentUser: string;
-     isUserLoggedIn:boolean = false;
-     updateUserStatus: Subject<boolean> = new Subject();
-  constructor(private router: Router) { }
+     username;
+     currentUser: string=null;
+     public static isUserLoggedIn:boolean = false;
+     public static updateUserStatus: Subject<boolean> = new Subject();
+  constructor(private router: Router,
+   private authService: AuthentificationService ) {
+    HeaderComponent.updateUserStatus.subscribe(res => {
+      var cU = localStorage.getItem('currentUser');
+      this.username = JSON.parse(localStorage.getItem('currentUser'));
+
+      //this.username = cU == null ? '' : JSON.parse(cU).username;
+    })
+  }
 
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.username=this.currentUser;
+
   }
 
     logout() {
       localStorage.removeItem('currentUser');
+      //manque supprimer aussi le localStorage de firebase
+      this.authService.logout();
+  		HeaderComponent.isUserLoggedIn = false;
     }
     Fauxlogin() {
         localStorage.setItem('currentUser',JSON.stringify("toto"));
          }
     isUser(){
-      if(this.currentUser)
-        return true;
-          else
-        return false;
-      }
+        return HeaderComponent.isUserLoggedIn;
+    }
 }

@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot,Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { HeaderComponent } from 'app/shared/component/header/header.component';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
+  //ne pas effecer
   /*canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
@@ -13,6 +15,8 @@ export class AuthGuard implements CanActivate {
   canActivate() {
   if (localStorage.getItem('currentUser')) {
     // logged in so return true
+    HeaderComponent.isUserLoggedIn = true;
+    HeaderComponent.updateUserStatus.next(true);
     return true;
   }
   else {
@@ -21,4 +25,5 @@ export class AuthGuard implements CanActivate {
     return false;
     }
   }
+
 }

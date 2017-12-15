@@ -27,7 +27,7 @@
                 <span class="{{''}}"></span>Create project</a>
             </li>
             <li *ngIf="!isUser()" (click)="Fauxlogin()" >
-              <a class="navbar-left" href="">{{'FauxLogin'}}</a>
+              <a class="navbar-left" [routerLink]="['']">{{'FauxLogin'}}</a>
             </li>
             <li>
               <a class="navbar-left" [routerLink]="['search']">{{'Chercher Projet'}}</a>
@@ -45,7 +45,7 @@
                 <span class="{{'glyphicon glyphicon-user'}}"></span>Sign Up</a>
             </li>
             <li *ngIf="isUser()" (click)="logout();isCollapsed = true" routerLinkActive="active">
-              <a href="">
+              <a [routerLink]="['/index']">
                 <span class="{{''}}"></span>Logout</a>
             </li>
             <li *ngIf="isUser()" (click)="isCollapsed = true" routerLinkActive="active">
