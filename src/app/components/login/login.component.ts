@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from 'app/services/index';
+import { Router } from '@angular/router';
+import { HeaderComponent } from 'app/shared/component/header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -8,18 +10,63 @@ import { AuthentificationService } from 'app/services/index';
 })
 export class LoginComponent implements OnInit {
   model: any = {};
-  constructor(private auth : AuthentificationService) { }
+  isNotLoggedIn:boolean;
+  constructor(private auth : AuthentificationService,
+  private router: Router) { }
 
   ngOnInit() {
+  console.log(this.isNotLoggedIn);
+  this.isNotLoggedIn=this.authenticated();
+
+  console.log(this.isNotLoggedIn);
+  }
+  /// Social Login
+  signInWithGithub() {
+    this.auth.githubLogin()
+    .then(() => this.afterSignIn());
   }
 
+  signInWithGoogle() {
+    this.auth.googleLogin()
+      .then(() => this.afterSignIn());
+  }
+
+  signInWithFacebook() {
+    this.auth.facebookLogin()
+      .then(() => this.afterSignIn());
+  }
+
+  signInWithTwitter() {
+    this.auth.twitterLogin()
+      .then(() => this.afterSignIn());
+  }
   //Connexion d'un utilisateur
   login() {
    this.auth.login(this.model);
-   if(this.auth.authenticated()) {
-      console.log("Connected!");
-   }else {
-      console.log("Not connected");
-   }
-  } 
+   console.log("login->"+this.isNotLoggedIn);
+   this.isNotLoggedIn=this.authenticated();
+  }
+
+  logout(){
+    this.auth.logout();
+  }
+
+  authenticated(){
+    if(!this.auth.authenticated()){
+      console.log("header activer");
+      HeaderComponent.isUserLoggedIn = true;
+      HeaderComponent.updateUserStatus.next(true);
+      return false;
+    }else
+    return true;
+  }
+
+  /// Shared
+ private afterSignIn() {
+   // Do after login stuff here, such router redirects, toast messages, etc.
+
+   console.log("login->"+this.isNotLoggedIn);
+   this.isNotLoggedIn=this.authenticated();
+   this.router.navigate(['/']);
+ }
 }

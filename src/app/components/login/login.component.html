@@ -1,4 +1,4 @@
-<div class="col-md-6 col-md-offset-3">
+<div *ngIf="isNotLoggedIn" class="col-md-6 col-md-offset-3">
   <h2>Connexion</h2>
   <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
     <div class="form-group">
@@ -15,3 +15,21 @@
       </div>
   </form>
 </div>
+
+  <h3>Social Login</h3>
+
+    <button (click)="signInWithGoogle()" class="button btn-social btn-google">
+      <i class="fa fa-google fa-lg"></i> Connect Google
+    </button>
+
+    <button (click)="signInWithGithub()" class="button btn-social btn-github" >
+      <i class="fa fa-github fa-lg"></i> Connect GitHub
+    </button>
+
+    <button (click)="signInWithFacebook()" class="button  btn-social btn-facebook" >
+      <i class="fa fa-facebook fa-lg"></i> Connect Facebook
+    </button>
+
+    <button (click)="signInWithTwitter()" class="button  btn-social btn-twitter" disabled>
+      <i class="fa fa-twitter fa-lg"></i> Connect Twitter
+    </button>
