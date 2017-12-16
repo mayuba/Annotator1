@@ -66,6 +66,7 @@ firequery(start, end) {
       this.projet =  this.ProjetCollection.valueChanges();
       return this.projet;
   }
+  
 
   //**
   generateArray(obj){

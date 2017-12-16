@@ -30,8 +30,8 @@ export class ProjectComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private projetService: ProjetService) {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  this.currentProjet = JSON.parse(localStorage.getItem('currentProjet'));
-  this.loadProjet();
+      this.currentProjet = JSON.parse(localStorage.getItem('currentProjet'));
+      this.loadProjet();
   }
   ngOnInit() {
   }
