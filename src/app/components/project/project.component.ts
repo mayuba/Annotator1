@@ -49,7 +49,7 @@ export class ProjectComponent implements OnInit {
   }
 
   currentUserIsAdmin(){
-    console.log(model);
+    console.log(this.model);
   }
 
   //comparaison de l'usager actuel a l'usager entre en parametre
