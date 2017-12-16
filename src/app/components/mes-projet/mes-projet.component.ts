@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {ProjetService} from 'app/services/index';
 import{Observable} from 'rxjs/Observable';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatButtonModule} from '@angular/material';
+import {NgForm} from '@angular/forms';
+import {gestionProjetComponent} from '../gestionProjet/gestionProjet.component';
 
 @Component({
   selector: 'app-mes-projet',
@@ -25,6 +27,12 @@ export class MesProjetComponent implements OnInit {
   ngOnInit() {
 
   }
+
+  //openProjetDialog(): void{
+    //let dialogRef = this.dialog.open(gestionProjetComponent, {
+      //width: '300px',
+      //data: { categoryName: this.categoryName, categoryColor: this.categoryColor }
+    //});
 //verifie si l'utilisateur est le courant utilisateur
 //pour permettre de lui donner les privileges selon son role
 //aussi afficher que les projets qu'il participe
