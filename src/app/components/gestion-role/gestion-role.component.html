@@ -1,3 +1,22 @@
-<p>
-  gestion-role works!
-</p>
+<!DOCTYPE html>
+<html>
+<body>
+<h3>GESTION DES RÔLES</h3>
+<input type="text" name="search" placeholder="Rechercher">
+
+<form action="/action_page.php" method="post" target="_blank">
+Prénom(s): <input class="barre" type="text" name="fname"><br>
+  <br>
+ Nom(s): <input class="barre" type="text" name="lname" ><br>
+  <br>
+  <form action="/action_page.php" method="get">
+  <input type="checkbox" name="Annotateur" value="Annotateur"> Annotateur
+  <input type="checkbox" name="AdminProjet" value="AdminProjet" checked> AdminProjet
+<br><br>
+</form>
+  <input type="submit" value="Ajouter">
+  <input class="bouton" type="submit" value="Supprimer">
+</form>
+
+</body>
+</html>
