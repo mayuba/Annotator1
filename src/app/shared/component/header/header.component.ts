@@ -34,9 +34,6 @@ export class HeaderComponent implements OnInit {
       this.authService.logout();
   		HeaderComponent.isUserLoggedIn = false;
     }
-    Fauxlogin() {
-        localStorage.setItem('currentUser',JSON.stringify("toto"));
-         }
     isUser(){
         return HeaderComponent.isUserLoggedIn;
     }

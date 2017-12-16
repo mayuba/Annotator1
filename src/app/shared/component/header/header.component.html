@@ -29,9 +29,6 @@
               <a [routerLink]="['/create']" routerLinkActive="active">
                 <span class="{{''}}"></span>Create project</a>
             </li>
-            <li *ngIf="!isUser()" (click)="Fauxlogin()" >
-              <a class="navbar-left" [routerLink]="['']">{{'FauxLogin'}}</a>
-            </li>
             <li>
               <a class="navbar-left" [routerLink]="['search']">{{'Chercher Projet'}}</a>
             </li>
