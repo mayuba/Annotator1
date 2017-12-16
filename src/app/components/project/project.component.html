@@ -8,10 +8,11 @@
     <mat-toolbar><h3>Corpus</h3></mat-toolbar>
     <mat-card-content>
      <mat-list>
-      <mat-list-item>Texte1</mat-list-item>
-      <mat-list-item>Texte2</mat-list-item>
-      <mat-list-item>Texte3</mat-list-item>
-      <mat-list-item>Texte3</mat-list-item>
+       <!--<div  *ngFor="let item of model | async">
+         <div *ngFor="let each of generateArray(item.Corpus)">
+           <mat-list-item>{{each.value}}</mat-list-item>
+         </div>
+       </div>-->
      </mat-list>
     <p><button mat-button (click)="openCorpusDialog()">Ajouter un texte</button></p>
   </mat-card-content>
@@ -23,9 +24,11 @@
     <mat-toolbar><h3>Membres</h3></mat-toolbar>
     <mat-card-content>
       <mat-list>
-        <mat-list-item>Membre1</mat-list-item>
-        <mat-list-item>Membre2</mat-list-item>
-        <mat-list-item>Membre3</mat-list-item>
+        <div  *ngFor="let item of model | async">
+          <div *ngFor="let each of generateArray(item.Annotateurs)">
+            <mat-list-item>{{each.value}}</mat-list-item>
+          </div>
+        </div>
       </mat-list>
       <p><button mat-button>Ajouter un membre</button></p>
     </mat-card-content>
@@ -41,28 +44,13 @@
 
     <mat-card-content>
       <mat-grid-list cols="3" rowHeight="2:1">
-        <mat-grid-tile>catégorie 1</mat-grid-tile>
-        <mat-grid-tile>catégorie 2</mat-grid-tile>
-        <mat-grid-tile>catégorie 3</mat-grid-tile>
-        <mat-grid-tile>catégorie 4</mat-grid-tile>
-        <mat-grid-tile>catégorie 5</mat-grid-tile>
-        <mat-grid-tile>catégorie 6</mat-grid-tile>
-        <mat-grid-tile>catégorie 7</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
+        <div  *ngFor="let item of model | async">
+          <div *ngFor="let each of generateArray(item.categories)">
+            <mat-grid-tile [ngStyle] = "{'background-color': each.value.couleur}">{{each.value.titre}}</mat-grid-tile>
+          </div>
+        </div>
       </mat-grid-list>
-
       <button mat-button (click)="openCategoriesDialog()">Ajouter une catégorie</button>
-
-
-
-
-
     </mat-card-content>
   </mat-card>
 </div>
