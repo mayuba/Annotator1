@@ -22,6 +22,9 @@
             <li *ngIf="!isUser()" (click)="isCollapsed = false" routerLinkActive="active">
               <a class="navbar-left" [routerLink]="['index']">{{'Accueil'}}</a>
             </li>
+            <li *ngIf="isUser()" (click)="isCollapsed = false" routerLinkActive="active">
+              <a class="navbar-left" [routerLink]="['annotation']">{{'Annotateur'}}</a>
+            </li>
             <li *ngIf="isUser()" (click)="isCollapsed = true" routerLinkActive="active">
               <a [routerLink]="['/create']" routerLinkActive="active">
                 <span class="{{''}}"></span>Create project</a>
