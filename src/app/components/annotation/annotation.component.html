@@ -1,13 +1,361 @@
-<h1>Annotation</h1>
-<h2>Titre du texte </h2>
+<script src="shared/script/jquery.js"></script>
+<script src="shared/script/jquery-ui.js"></script>
+		<div id="ecran">ici apparaitrons les annotations
+		</div>
+	<div id="megaContainer">
+		<div id="marginLeft" class="resizable"></div>
+		<div id="main" contenteditable="false">1234567<br>89ABCDEF<br>GHIJKL<br/>Ceci est un texte de test</div>
+		<div id="marginRight" class="resizable"></div>
+	</div>
 
-<button> Save </button>
+	<button style="margin-top:100px" onclick="borto.command('annoteur')">annoter</button>
+	<script>
+		$('#marginLeft').resizable({ 
+			handles: 'e'
+		});
+		$('#marginRight').resizable({ 
+			handles: 'w'
+		});
+	</script>
+	<script type="text/javascript">
+	(function(){
+		var id = 0
+	var $ = window.borto = {
+		getUniqId: function(){
+			return 'bortId' + (++id)
+		},
+		main: document.getElementById('main'),
+		tmpEl: document.createElement('div'),
+		mode: 'edit',
+	
+		htmlToDom: function(htmlEl){
+			$.tmpEl.innerHTML = htmlEl;
+			return $.tmpEl.childNodes[0]
+		},
+		setNode: function($el,node){
+			$el.innerHTML = ''
+			$el.appendChild(node)
+			return $el
+		},
+		getRangeArr: function(){
+			var sel = sel || window.getSelection();
+			var rangeArr = [];
+			// In firefox we can select multiple area, so they are multiple range
+			for(var i = sel.rangeCount;i--;){
+				rangeArr.push(sel.getRangeAt(i));
+			}
+			return rangeArr
+		},
+		wrapSelection: function(htmlWraper,rangeArr){
+			var wrapperArr = []
+			rangeArr.forEach(function(range){
+				var startC,uniqId;
+				var patch1 = function(){
+					//mettre une class pour identifier les duplicatas
+					if(range.startOffset == 0 && range.startContainer != range.endContainer){
+						startC = range.startContainer
+						uniqId = borto.getUniqId()
+						jQuery(startC).addClass(uniqId)
+					}
+				}
+				var patch2 = function(){
+					// bug qui dupplique le premier élément et en particuler les br
+					// donc on l'enlève
+					if(uniqId){
+						var duplicata = jQuery('.'+uniqId)
+						duplicata[0] = duplicata[duplicata.length - 1]
+						--duplicata.length//en garder un
+						duplicata.remove()
+					}
+				}
+				var wrapper = $.htmlToDom(htmlWraper)
+				patch1()
+				wrapper.appendChild(range.extractContents());
+				range.insertNode(wrapper);
+				wrapperArr.push(wrapper)
+				patch2()
+			})
+			return wrapperArr
+		},
+		/* remove tag keeping the content <h1> text </h1> -> text */
+		/*removeTag: function(rangeArr){
+			// In firefox we can select multiple area, so they are multiple range
+			rangeArr.forforEach(function(nge){
+				$.setNode($.tmpEl,range.extractContents())
+				var html = $.tmpEl.innerHTML.replace(/<\/?borto-exstyle.*?>/g,'')
+				range.insertNode($.htmlToDom(html));
+			})
+		},*/
+		split: function(parent,child){
+			var endParent = parent.cloneNode(false)//copy without children
+			var div;
+			parent.childNodes.forforEach(function(ild2){
+			    div && div.appendChild(child);//move to endParent if node is after child
+			    if(child == child2){
+			    	div = endParent
+			    }
+			})
+			//put in order parent -> child -> endParent
+			if(endParent.firstChild){
+				$.insert(parent,endParent,'afterend')//end
+			}
+			$.insert(parent,child,'afterend')//mid
+			return [parent,child,endParent]
+		},
+		command: (name,argument)=>{
+			switch(name){
+				case 'removeformat': 
+					var rangeArr = $.getRangeArr(),parent
+					rangeArr.forforEach(function(nge){
+						$.tmpEl.textContent = range.extractContents().textContent
+						var node = $.tmpEl.childNodes[0];
+						range.insertNode(node)
+						while(parent =/*<-*/node.parentElement.closest('borto-exstyle')){
+							$.split(parent,node)//put the node out of the parent but keep it in middle
+						}
+					})
+				break;case 'inclusiveStyle' :
+					var rangeArr = $.getRangeArr()
+					//$.removeTag(rangeArr)
+					var wrapperArr = $.wrapSelection('<borto-instyle class="'+argument+'"/>',rangeArr)
+				break;case 'exclusiveStyle' : case 'annoteur':
+					if(name == 'annoteur'){
+						annotation = prompt('annotation ?');
+						argument = 'anoted'
+					}
+					var rangeArr = $.getRangeArr()
+					//$.removeTag(rangeArr)
+					var wrapperArr = $.wrapSelection('<borto-exstyle annotation="'+annotation+'" class="'+argument+'"/>',rangeArr)
+					// we can't have a borto-exstyle child of an other bortoblock
+					var toRemoveOuterTag = []
+					wrapperArr.forforEach(function(apper){
+						var parent;
+						//it is not normal to have an imbrication of borto-exstyle
+						//split in 3 parts close the end tag of the first and the first tag of the third
+						// and put in the good order 
+						if(parent = wrapper.parentNode.closest('borto-exstyle') || wrapper.closest('borto-exstyle')){
+							var endParent = parent.cloneNode(false)//copy without children
+							var div;
+							parent.childNodes.forforEach(function(ild){
+							    div && div.appendChild(child);//move to endParent
+							    if(child == wrapper){
+							    	div = endParent
+							    }
+							})
+							//put in order parent -> wrapper -> endParent
+							if(endParent.firstChild){
+								$.insert(parent,endParent,'afterend')//end
+							}
+							$.insert(parent,wrapper,'afterend')//mid
+						}
 
-<menu> Recherche </menu>
+						//remove incompatible style in block
+						if(parent){	
+							Array.prototype.push.apply(toRemoveOuterTag,parent.querySelectorAll('borto-exstyle'))
+							Array.prototype.push.apply(toRemoveOuterTag,endParent.querySelectorAll('borto-exstyle'))
+							Array.prototype.push.apply(toRemoveOuterTag,wrapper.querySelectorAll('borto-exstyle'))
+						}
+						//dont let empty element
+						var next = wrapper.nextElementSibling
+						if(next && !next.firstChild){
+							next.remove()
+						}
+					})
+					$.removeOuterTag(toRemoveOuterTag)	
+					return;
+			}
+			if(typeof argument === 'undefined') {
+    			argument = '';
+			}
+			document.execCommand(name, false, argument);
+		},
+		removeOuterTag: function(elmArr){
+			elmArr.forforEach(function(tch){
+				var fragment = document.createDocumentFragment();
+				if(!match.parentNode){console.log('un parent est necessaire');return;}
+				while(match.firstChild) {
+				    fragment.appendChild(match.firstChild);
+				}
+				$.insert(match,fragment,'afterend')//déplacer le contenu de la balise en dehors de celle-ci
+				match.remove()//supprimer la balise vide
+			})
+		},
+		insert: function($el,outerHTML,pos){
+			if(pos == 'replace'){
+				$.insert($el,outerHTML,'beforebegin')
+				$el.remove()
+				return
+			}
+			pos = pos || 'beforeend'
+			if(typeof outerHTML == 'string'){
+				var div = document.createElement('div')
+				div.innerHTML = $el
+				$el = div.childNodes[0]
+			}
+			switch(pos){
+				case 'beforebegin' :  $el.parentNode.insertBefore(outerHTML, $el );break
+				case 'afterbegin'  :  $el.insertBefore(outerHTML,$el.firstChild);break
+				case 'beforeend'   :  $el.appendChild(outerHTML);break
+				case 'afterend'    :  $el.parentNode.insertBefore(outerHTML,$el.nextSibling);break
+				default: console.log('error '+ pos)
+			}
+			
+		},
+	}		
+})()
+	</script>
+	<script src="script/insertPicture.js"></script>
+	<style>
+		body,html{
+			height: 100%;
+			width: 100%;
+		}
+		#main{
+			height: 100%;
+		}
+		#main > textarea{
+			width: 100%;
+			height: 100%;
+		}
+		borto-exstyle.h1{
+			font-size: 20pt;
+		}
+		borto-exstyle.h2{
+			font-size: 18pt;
+		}
+		borto-exstyle.h3{
+			font-size: 15pt;
+		}
+		borto-exstyle.h4{
+			font-size: 13pt;
+		}
+		borto-exstyle.h5{
+			font-size: 11pt;
+		}
+		borto-exstyle.h6{
+			font-size: 10pt;
+		}
 
-<frame>
+		borto-instyle{
+			display: inline-block;
+		}
+		borto-instyle.rotate90{
+			transform: rotate(90deg);
+		}
+		borto-instyle.rotate270{
+			transform: rotate(-90deg);
+		}
+		borto-instyle.rotate180{
+			transform: rotate(180deg);
+		}
+		#marginLeft,#marginRight{
+			background: grey;
+			min-width: 50px;
+			width: 50px;
+			height: 100px;
+		}
+		#marginLeft,#marginRight{
+			display: table-cell;
+		}
+		#megaContainer{
+			display: table;
+			flex-direction: row;
+			width: 100%
+		}
+		#main{
+			display: table-cell;
+/*			flex-grow: 1;
+*/		}
+		#main,#megaContainer,#marginLeft,#marginRight{
+			height: 100%;
+		}
+		#marginRight{
+			left: 0 !important;
+		}
 
- <div> text </div>
-<p>This is a paragraph.</p>
+		.ui-resizable-e,.ui-resizable-w{
+		    width: 17px;
+		    background: blue;
+    		margin-right: 6px;
+    		margin-left: 6px;
+		}
 
-</frame>
+		.ui-resizable-n,.ui-resizable-s {
+		    height: 17px;
+		    background: blue;
+		}
+	</style>
+	<script type="text/javascript">
+	var tNode = function(text){
+		return document.createTextNode(text)
+	};
+
+	qq = function(selector){
+		return document.querySelectorAll(selector)
+	}
+	qq.insert = function($el,outerHTML,pos){
+		if(pos == 'replace'){
+			$.insert($el,outerHTML,'beforebegin')
+			$el.remove()
+			return
+		}
+		pos = pos || 'beforeend'
+		if(typeof outerHTML == 'string'){
+			var div = document.createElement('div')
+			div.innerHTML = outerHTML
+			outerHTML = div.childNodes[0]
+		}
+
+		switch(pos){
+			case 'beforebegin' :  $el.parentNode.insertBefore(outerHTML, $el );break
+			case 'afterbegin'  :  $el.insertBefore(outerHTML,$el.firstChild);break
+			case 'beforeend'   :  $el.appendChild(outerHTML);break
+			case 'afterend'    :  $el.parentNode.insertBefore(outerHTML,$el.nextSibling);break
+			default: console.log('error '+ pos)
+		}
+	}
+	qq.after = function(ref,newEl){
+		qq.insert(ref,newEl,'afterend')
+	}
+	qq.before = function(ref,newEl){
+		qq.insert(ref,newEl,'beforebegin')
+	}
+	
+	</script>
+	<style>
+		@-webkit-keyframes blink {
+		    from {
+		        opacity: 1.0;
+		    }
+		    to {
+		        opacity: 0.0;
+		    }
+		}
+		blink {
+			position: absolute;
+			color: black;
+			background: black;
+			width: 2px;
+		    -webkit-animation-name: blink;
+		    -webkit-animation-iteration-count: infinite;
+		    -webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+		    -webkit-animation-duration: 1s;
+		}
+		.selection{
+			background: #abd5e2;
+			display: inline-block;
+			vertical-align: top;
+		}
+		.anoted{
+			background: yellow;
+		}
+	</style>
+
+	<script>
+		var ecran = document.getElementById('ecran')
+		document.body.addEventListener('mouseover',function(event){
+			if(event.target.matches('.anoted') ){
+				ecran.innerText = event.target.getAttribute('annotation');
+			}
+		})
+	</script>
