@@ -15,11 +15,11 @@
               <mat-card >
                 <mat-list-item>
                 <a matLine >{{item.titre}}</a>
-                <div *ngIf="currentUserTrue(item.admin)">
+          <!--      <div *ngIf="currentUserTrue(item.admin)">-->
                  <button color="primary" mat-icon-button (click)="select(each.titre)" [routerLink]="['/projet']">
                    Modifier
                  </button>
-                </div>
+
              </mat-list-item>
            </mat-card >
            </mat-nav-list>

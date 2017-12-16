@@ -22,11 +22,12 @@ export class ProjectComponent implements OnInit {
   categoryName: string;
   categoryColor: string;
 	model: any = {};
-	Projects: File[]=[];
+	//Projects: File[]=[];
   categoriesArray: object[];
  	Corpus: File[]=[];
   currentProjet: string;
   currentUser: string;
+
 
   constructor(public dialog: MatDialog, private projetService: ProjetService) {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -45,6 +46,18 @@ export class ProjectComponent implements OnInit {
   generateArray(obj){
     return Object.keys(obj)
       .map((key)=>{ return {key:key, value:obj[key]}});
+  }
+
+  currentUserIsAdmin(){
+    console.log(model);
+  }
+
+  //comparaison de l'usager actuel a l'usager entre en parametre
+  currentUserTrue(User: string){
+     if(User == this.currentUser)
+      return true;
+     else
+      return false;
   }
 
   openCorpusDialog(): void{
