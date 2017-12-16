@@ -11,18 +11,27 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class ProjetService {
   All: Observable<Projet[]>;
-  projet: Array<string>;
+  projet: Observable<Projet[]>;
   projetList: Observable<Projet[]>;
-
   private ProjetCollection: AngularFirestoreCollection<Projet>;
-
   currentUser:string;
+  private allCouleurs: object[];
+  currentCategories:object[];
 
   constructor(private afs: AngularFirestore) {
     //recupere le token de l'utilisateur courant
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.ProjetCollection = afs.collection<Projet>('Projet');
     this.All = this.ProjetCollection.valueChanges();
+    this.allCouleurs = [
+      {nom:'rouge', couleur:'#F44336'},
+      {nom:"bleu", couleur:"#2196F3"},
+      {nom:"vert", couleur:"#4CAF50"},
+    /*{"nom":"jaune","couleur":"#FFEB3B"},
+      {"nom":"vert", "couleur":"#4CAF50"},
+      {"nom":"violet", "couleur":"#673AB7"},
+      {"nom":"orange", "couleur":"#FF5722"}*/
+    ];
   }
 
 
@@ -47,16 +56,32 @@ firequery(start, end) {
              .valueChanges();
 }
   //Obtention du modèle du projet à partir de son id
-  getModel(titre: string){
-    /*let tabProjet: Observable<Projet[]>;
+  //Obtention du modèle du projet à partir de son id
+  getModelProjet(titre:string){
     this.ProjetCollection = this.afs
-        .collection('Projet', ref => {
-          return ref.where('titre', '==', titre)
-          this.projetList =  this.ProjetCollection.valueChanges();
-    });
-    this.projetList =  this.ProjetCollection.valueChanges();
-    return this.projetList;
-    */
+      .collection('Projet', ref => {
+        return ref.where('titre', '==', titre)
+        //this.projetList =  this.ProjetCollection.valueChanges();
+      });
+      this.projet =  this.ProjetCollection.valueChanges();
+      return this.projet;
+  }
+
+  //**
+  generateArray(obj){
+    return Object.keys(obj)
+      .map((key)=>{ return {key:key, value:obj[key]}});
+  }
+
+  //récupérer le titre du projet en cours
+  getCurrentProjetName(){
+    return JSON.parse(localStorage.getItem('currentProjet'));
+  }
+
+  getAvailableCouleurs(model){
+    alert("getAvCouleurs");
+    this.currentCategories = this.generateArray(model.categories);
+    console.log(this.generateArray(model.categories));
   }
 
   //Création d'un nouveau projet

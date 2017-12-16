@@ -41,28 +41,13 @@
 
     <mat-card-content>
       <mat-grid-list cols="3" rowHeight="2:1">
-        <mat-grid-tile>catégorie 1</mat-grid-tile>
-        <mat-grid-tile>catégorie 2</mat-grid-tile>
-        <mat-grid-tile>catégorie 3</mat-grid-tile>
-        <mat-grid-tile>catégorie 4</mat-grid-tile>
-        <mat-grid-tile>catégorie 5</mat-grid-tile>
-        <mat-grid-tile>catégorie 6</mat-grid-tile>
-        <mat-grid-tile>catégorie 7</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
-        <mat-grid-tile>catégorie 8</mat-grid-tile>
+        <div  *ngFor="let item of model | async">
+          <div *ngFor="let each of generateArray(item.categories)">
+            <mat-grid-tile [ngStyle] = "{'background-color': each.value.couleur}">{{each.value.titre}}</mat-grid-tile>
+          </div>
+        </div>
       </mat-grid-list>
-
       <button mat-button (click)="openCategoriesDialog()">Ajouter une catégorie</button>
-
-
-
-
-
     </mat-card-content>
   </mat-card>
 </div>
