@@ -8,11 +8,11 @@
     <mat-toolbar><h3>Corpus</h3></mat-toolbar>
     <mat-card-content>
      <mat-list>
-       <!--<div  *ngFor="let item of model | async">
+       <div  *ngFor="let item of model | async">
          <div *ngFor="let each of generateArray(item.Corpus)">
            <mat-list-item>{{each.value}}</mat-list-item>
          </div>
-       </div>-->
+       </div>
      </mat-list>
     <p><button mat-button (click)="openCorpusDialog()">Ajouter un texte</button></p>
   </mat-card-content>
@@ -30,7 +30,7 @@
           </div>
         </div>
       </mat-list>
-      <p><button mat-button>Ajouter un membre</button></p>
+      <p><button mat-button [routerLink]="['/roles']">Gérer les membres</button></p>
     </mat-card-content>
   </mat-card>
 </div>
