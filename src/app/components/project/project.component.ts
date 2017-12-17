@@ -48,16 +48,21 @@ export class ProjectComponent implements OnInit {
       .map((key)=>{ return {key:key, value:obj[key]}});
   }
 
-  currentUserIsAdmin(){
-    console.log(this.model);
-  }
-
-  //comparaison de l'usager actuel a l'usager entre en parametre
-  currentUserTrue(User: string){
-     if(User == this.currentUser)
-      return true;
-     else
-      return false;
+  //verifie si l'utilisateur actuel est l'administrateur.  Prend "item" en parametre
+  //il s'agit de l'item cree par la boucle ngFor sur le modele dans le document html.
+  //Cette maniere de faire n'est pas du tout recommandee, mais je n'ai pas reussi a
+  //atteindre les elements internes de la collection d'une maniere plus directe.
+  currentUserIsAdmin(item){
+    let array = this.generateArray(item);
+    let adminId: string;
+    for(let element of array){
+      if(element.key == "admin"){
+        adminId=element.value;
+        break;
+      }
+    }
+    if(adminId!=undefined && adminId==this.currentUser) return true;
+    else return false;
   }
 
   openCorpusDialog(): void{

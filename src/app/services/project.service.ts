@@ -66,13 +66,6 @@ firequery(start, end) {
       this.projet =  this.ProjetCollection.valueChanges();
       return this.projet;
   }
-  
-
-  //**
-  generateArray(obj){
-    return Object.keys(obj)
-      .map((key)=>{ return {key:key, value:obj[key]}});
-  }
 
   //récupérer le titre du projet en cours
   getCurrentProjetName(){

@@ -3,6 +3,7 @@
   <h2>Vous êtes connectés au projet <strong>{{currentProjet}}</strong></h2>
 </div>
 
+<!-- Colonne associee au corpus-->
 <div class="column" >
 <mat-card >
     <mat-toolbar><h3>Corpus</h3></mat-toolbar>
@@ -13,47 +14,51 @@
             <mat-list-item >{{each.value}}</mat-list-item>
           </mat-nav-list>
         </div>
+        <div *ngIf="currentUserIsAdmin(item)">
+          <p><button mat-button (click)="openCorpusDialog()">Ajouter un texte</button></p>
+        </div>
       </div>
-
-    <p><button mat-button (click)="openCorpusDialog()">Ajouter un texte</button></p>
   </mat-card-content>
 </mat-card>
 </div>
 
+<!-- Colonne associee aux membres du projet -->
 <div class="column">
   <mat-card >
     <mat-toolbar><h3>Membres</h3></mat-toolbar>
     <mat-card-content>
-      <mat-list>
-        <div  *ngFor="let item of model | async">
-          <div *ngFor="let each of generateArray(item.Annotateurs)">
+      <div  *ngFor="let item of model | async">
+        <div *ngFor="let each of generateArray(item.Annotateurs)">
+          <mat-list>
             <mat-list-item>{{each.value}}</mat-list-item>
-          </div>
+          </mat-list>
         </div>
-      </mat-list>
-    <!--  <div *ngIf="currentUserTrue(item.admin)">-->
-      <p><button mat-button [routerLink]="['/roles']">Gérer les membres</button></p>
-  <!--  </div>-->
+          <div *ngIf="currentUserIsAdmin(item)">
+            <p><button mat-button [routerLink]="['/roles']">Gérer les membres</button></p>
+          </div>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
 
+<!--Colonne associee aux categories d'annotation-->
 <div class="column">
   <mat-card >
-
     <mat-toolbar>
       <h3>Catégories</h3>
     </mat-toolbar>
-
     <mat-card-content>
       <mat-grid-list cols="3" rowHeight="2:1">
         <div  *ngFor="let item of model | async">
           <div *ngFor="let each of generateArray(item.categories)">
             <mat-grid-tile [ngStyle] = "{'background-color': each.value.couleur}">{{each.value.titre}}</mat-grid-tile>
           </div>
+          <div *ngIf="currentUserIsAdmin(item)">
+            <button mat-button (click)="openCategoriesDialog()">Ajouter une catégorie</button>
+          </div>
         </div>
       </mat-grid-list>
-      <button mat-button (click)="openCategoriesDialog()">Ajouter une catégorie</button>
+
     </mat-card-content>
   </mat-card>
 </div>
