@@ -85,6 +85,11 @@ export class ProjectComponent implements OnInit {
       this.categoryColor = result;
     });
    }
+
+   selectTitre(name: string){
+     //creation d'un token pour le texte courant
+     localStorage.setItem('currentText',JSON.stringify(name));
+   }
  }
 
    @Component({
