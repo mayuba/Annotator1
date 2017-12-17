@@ -53,12 +53,14 @@
           <div *ngFor="let each of generateArray(item.categories)">
             <mat-grid-tile [ngStyle] = "{'background-color': each.value.couleur}">{{each.value.titre}}</mat-grid-tile>
           </div>
-          <div *ngIf="currentUserIsAdmin(item)">
-            <button mat-button (click)="openCategoriesDialog()">Ajouter une catégorie</button>
-          </div>
+
         </div>
       </mat-grid-list>
-
+      <div  *ngFor="let item of model | async">
+        <div *ngIf="currentUserIsAdmin(item)">
+          <button mat-button (click)="openCategoriesDialog()">Ajouter une catégorie</button>
+        </div>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
