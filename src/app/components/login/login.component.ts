@@ -19,6 +19,10 @@ export class LoginComponent implements OnInit {
   this.isNotLoggedIn=this.authenticated();
 
   console.log(this.isNotLoggedIn);
+  //Assure la déconnexion d'un texte ou d'un projet en cas de redirection depuis
+  //un projet/annotation/gestion-usager
+  localStorage.removeItem('currentProjet');
+  localStorage.removeItem('currentText');
   }
   /// Social Login
   signInWithGithub() {

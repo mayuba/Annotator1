@@ -56,6 +56,10 @@ export class SearchProjetComponent implements OnInit {
      this.showSpinner = false;
      this.all = projets;
      this.projets = this.all;
+     //Assure la déconnexion d'un texte ou d'un projet en cas de redirection depuis
+     //un projet/annotation/gestion-usager
+     localStorage.removeItem('currentProjet');
+     localStorage.removeItem('currentText');
    })
    //recuperation du contenu de recherche
    Observable.combineLatest(this.startobs, this.endobs)

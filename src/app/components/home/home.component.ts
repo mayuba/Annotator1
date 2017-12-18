@@ -11,6 +11,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    //Assure la déconnexion d'un texte ou d'un projet en cas de redirection depuis
+    //un projet/annotation/gestion-usager
+    localStorage.removeItem('currentProjet');
+    localStorage.removeItem('currentText');
   }
 
   logOut() {

@@ -30,6 +30,8 @@ export class HeaderComponent implements OnInit {
 
     logout() {
       localStorage.removeItem('currentUser');
+      localStorage.removeItem('currentProjet');
+      localStorage.removeItem('currentText');
       //manque supprimer aussi le localStorage de firebase
       this.authService.logout();
   		HeaderComponent.isUserLoggedIn = false;
