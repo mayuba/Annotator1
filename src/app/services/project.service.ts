@@ -23,14 +23,15 @@ export class ProjetService {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.ProjetCollection = afs.collection<Projet>('Projet');
     this.All = this.ProjetCollection.valueChanges();
+    //tableau représentant toutes les couleurs possibles
     this.allCouleurs = [
       {nom:'rouge', couleur:'#F44336'},
-      {nom:'bleu', couleur:"#2196F3"},
-      {nom:'vert', couleur:"#4CAF50"},
-    /*{"nom":"jaune","couleur":"#FFEB3B"},
-      {"nom":"vert", "couleur":"#4CAF50"},
-      {"nom":"violet", "couleur":"#673AB7"},
-      {"nom":"orange", "couleur":"#FF5722"}*/
+      {nom:'bleu', couleur:'#2196F3'},
+      {nom:'vert', couleur:'#4CAF50'},
+      {nom:'jaune',couleur:'#FFEB3B'},
+      {nom:'vert', couleur:'#4CAF50'},
+      {nom:'violet', couleur:'#673AB7'},
+      {nom:'orange', couleur:'#FF5722'}
     ];
   }
 

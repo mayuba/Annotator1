@@ -15,6 +15,8 @@ export class GestionCategoriesComponent implements OnInit {
   //count:number;
   colorList:any;
   constructor(private projetService: ProjetService) {
+    //normalement on devrait appeler getAllowedColours, mais cette fonction
+    // n'est pas fonctionnelle
     this.colorList = projetService.getAllCouleurs();
     console.log(this.colorList);
   }
@@ -27,6 +29,8 @@ export class GestionCategoriesComponent implements OnInit {
     return true;
   }
 
+  //Normalement c'est cette fonction qui devrait être appelée dans le fichier
+  //html, mais elle n'est pas fonctionnelle
   getAllowedColours(item){
     let coloursArray: string[]=[];
     for(let each of this.generateArray(item.categories)){
