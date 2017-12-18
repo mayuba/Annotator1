@@ -1,7 +1,6 @@
 export * from './register/register.component';
 export * from './login/login.component';
 export * from './annotation/annotation.component';
-export * from './admin/admin.component';
 export * from './home/home.component';
 export * from './project/project.component';
 export * from './page-not-found/page-not-found.component';
