@@ -11,7 +11,6 @@ import {AppPreload} from './app.preload';
 import { RegisterComponent ,
          LoginComponent,
          AnnotationComponent,
-         AdminComponent ,
          IndexComponent,
          HomeComponent ,
          ProjectComponent ,

@@ -3,7 +3,7 @@ import {ProjetService} from 'app/services/index';
 import{Observable} from 'rxjs/Observable';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatButtonModule} from '@angular/material';
 import {NgForm} from '@angular/forms';
-import {gestionProjetComponent} from '../gestionProjet/gestionProjet.component';
+//import {gestionProjetComponent} from '../gestionProjet/gestionProjet.component';
 
 @Component({
   selector: 'app-mes-projet',
