@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import{Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 import {NgForm} from '@angular/forms';
 import {GestionCategoriesComponent} from '../gestionCategories/gestionCategories.component';
 import {GestionCorpusComponent} from '../gestionCorpus/gestionCorpus.component';
@@ -18,7 +18,6 @@ import {AngularFirestore,
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-
   categoryName: string;
   categoryColor: string;
 	model: any = {};
@@ -68,7 +67,7 @@ export class ProjectComponent implements OnInit {
   openCorpusDialog(): void{
     console.log(this.categoriesArray);
     let dialogRef = this.dialog.open(GestionCorpusComponent, {
-      width: '300px',
+      width: '250px',
       data: { categoryName: this.categoryName, categoryColor: this.categoryColor }
     });
 
@@ -78,10 +77,9 @@ export class ProjectComponent implements OnInit {
     });
    }
 
-
   openCategoriesDialog(): void{
     let dialogRef = this.dialog.open(GestionCategoriesComponent, {
-      width: '300px',
+      width: '250px',
       data: { categoryName: this.categoryName, categoryColor: this.categoryColor }
     });
 
@@ -97,7 +95,8 @@ export class ProjectComponent implements OnInit {
    }
  }
 
-   @Component({
+
+@Component({
   selector: 'dialog-overview-example-dialog',
   template: `<h3> says:</h3>`
   })
@@ -112,46 +111,3 @@ export class DialogOverviewExampleDialog {
   }
 
 }
-
-
-
-
-/*//loadProjects pour le chargement du projet
-
-  	loadProjects(){
-
-  	}
-//loadCorpus pour le chargement du texte du projet
-
-  	loadCorpus(project: string){
-
-  	}
-//loadLinkToStorage pour le transfert de lien dans le cookie(navigateur)
-
-	loadLinkToStorage(link: string){
-
-	}
-//addText pour donner accés au bouton d'ajout d'un texte
-
-  	addText(){
-
-  	}
-//
-
-  	create(){
-
-  	}
-
-//
-
-  	edit(projet: string){
-
-  	}
-
-  	//
-
-  	delete(){
-
-  	}
-
-}*/

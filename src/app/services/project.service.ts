@@ -25,8 +25,8 @@ export class ProjetService {
     this.All = this.ProjetCollection.valueChanges();
     this.allCouleurs = [
       {nom:'rouge', couleur:'#F44336'},
-      {nom:"bleu", couleur:"#2196F3"},
-      {nom:"vert", couleur:"#4CAF50"},
+      {nom:'bleu', couleur:"#2196F3"},
+      {nom:'vert', couleur:"#4CAF50"},
     /*{"nom":"jaune","couleur":"#FFEB3B"},
       {"nom":"vert", "couleur":"#4CAF50"},
       {"nom":"violet", "couleur":"#673AB7"},
@@ -72,11 +72,15 @@ firequery(start, end) {
     return JSON.parse(localStorage.getItem('currentProjet'));
   }
 
-  getAvailableCouleurs(model){
+  getAllCouleurs(){
+    return this.allCouleurs;
+  }
+
+/*  getAvailableCouleurs(model){
     alert("getAvCouleurs");
     this.currentCategories = this.generateArray(model.categories);
     console.log(this.generateArray(model.categories));
-  }
+  }*/
 
   //Création d'un nouveau projet
   create(projet: Projet){

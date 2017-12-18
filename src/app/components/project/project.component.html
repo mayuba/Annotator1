@@ -53,7 +53,6 @@
           <div *ngFor="let each of generateArray(item.categories)">
             <mat-grid-tile [ngStyle] = "{'background-color': each.value.couleur}">{{each.value.titre}}</mat-grid-tile>
           </div>
-
         </div>
       </mat-grid-list>
       <div  *ngFor="let item of model | async">
