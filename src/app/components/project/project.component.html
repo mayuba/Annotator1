@@ -17,7 +17,7 @@
           </div>
         </div>
         <div *ngIf="currentUserIsAdmin(item)">
-          <p><button mat-button (click)="openCorpusDialog()">Ajouter un texte</button></p>
+          <p><button mat-raised-button (click)="openCorpusDialog()">Ajouter un texte</button></p>
         </div>
       </div>
   </mat-card-content>
@@ -39,7 +39,7 @@
               </mat-list>
             </div>
           </div>
-          <p><button mat-button [routerLink]="['/roles']">Gérer les membres</button></p>
+          <p><button mat-raised-button [routerLink]="['/roles']">Gérer les membres</button></p>
         </mat-card-content>
       </mat-card>
     </div>
@@ -62,7 +62,7 @@
       </mat-grid-list>
       <div  *ngFor="let item of model | async">
         <div *ngIf="currentUserIsAdmin(item)">
-          <button mat-button (click)="openCategoriesDialog()">Ajouter une catégorie</button>
+          <button mat-raised-button (click)="openCategoriesDialog()">Ajouter une catégorie</button>
         </div>
       </div>
     </mat-card-content>
