@@ -1,8 +1,42 @@
+
 <!DOCTYPE html>
 <html>
 <body>
 <h3>GESTION DES RÔLES</h3>
-<input type="text" name="search" placeholder="Rechercher">
+
+<div >
+  <mat-card>
+  <mat-card-content >
+
+  <h2>Rechercher: {{users?.length}}utilisateur disponible</h2>
+  <mat-toolbar color="primary">
+    <form class="classNameHere" role="search">
+      <div class="input-group">
+      <input [(ngModel)]="searchterm" (keyup)="search($event)" type="text" class="form-control" placeholder="Chercher" name="srch-term" id="srch-term">
+        <div class="input-group-btn">
+          <button class="btn btn-default"  (click)="select()" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+    </form>
+    </mat-toolbar>
+  </mat-card-content>
+  </mat-card>
+  <br>
+
+    <mat-nav-list   *ngFor="let user of users">
+    <mat-card *ngIf="searchB">
+      <mat-list-item >
+        <a matLine   >
+        {{user.username}}
+      </a>
+      </mat-list-item>
+    </mat-card>
+    </mat-nav-list>
+    <div *ngIf="users?.length < 1">
+      <mat-progress-bar *ngIf="showSpinner" mode="indeterminate"></mat-progress-bar>
+      <p *ngIf="!showSpinner">Sorry, no projets found</p>
+    </div>
+</div>
 
 <form action="/action_page.php" method="post" target="_blank">
 Prénom(s): <input class="barre" type="text" name="fname"><br>

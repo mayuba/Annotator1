@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 @Injectable()
 export class UsersService {
   user : User;
+  All: Observable<User[]>;
+  userList: Observable<User[]>;
 
   private UserCollection : AngularFirestoreCollection<User>;
 
@@ -19,6 +21,7 @@ export class UsersService {
               private firebase : AngularFireAuth,
               private afs : AngularFirestore) {
     this.UserCollection = afs.collection<User>('User');
+    this.All = this.UserCollection.valueChanges();
   }
 
   // Ajoute un nouvel utilisateur dans la base de données
@@ -26,7 +29,6 @@ export class UsersService {
     //this.firebase.auth.createUserWithEmailAndPassword(model.displayName,model.email, model.password);
     //model.displayName=model.username;
     //this.UserCollection.add(model);
-
 //  }
 /*A discuter
   addUserSocial(user: User){
@@ -75,5 +77,34 @@ export class UsersService {
   getAdmin(id: number)  {
 
   }
+
+  ajouter(user: User){
+    this.UserCollection.add(user);
+  }
+
+  getAll(){
+    return this.afs
+               .collection('User', ref => ref
+               .orderBy('displayName'))
+               .valueChanges();
+  }
+
+  firequery(start, end){
+    return this.afs
+               .collection('User', ref => ref.limit(4)
+               .orderBy('displayName')).startAt(start).endAt(end))
+               .valueChanges();
+  }
+
+  getModelUser(username:string){
+    this.UserCollection = this.afs
+        .collection('User', ref => {
+        return ref.where('displayName', '==', username)
+
+      });
+      this.user =  this.UserCollection.valueChanges();
+      return this.user;
+  }
+
 
 }
