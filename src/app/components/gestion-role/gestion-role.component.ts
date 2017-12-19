@@ -65,13 +65,7 @@ import 'rxjs/add/operator/switchMap';
 
 
 }
-			fauxData(){
-	      //cree de faux utilisateurs :)
-
-	      this.create("annotator1@gmail.com","test1","annot1");
-	      this.create("annotator2@gmail.com","test2","annot2");
-				this.create("annotator3@gmail.com","test3","annot3");
-	    }
+		 
 
 			search($event) {
 			this.searchB=false;

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class UsersService {
-  user : User;
+  user : Observable<User[]>;
   All: Observable<User[]>;
   userList: Observable<User[]>;
 
@@ -92,7 +92,7 @@ export class UsersService {
   firequery(start, end){
     return this.afs
                .collection('User', ref => ref.limit(4)
-               .orderBy('displayName')).startAt(start).endAt(end))
+               .orderBy('displayName').startAt(start).endAt(end))
                .valueChanges();
   }
 
