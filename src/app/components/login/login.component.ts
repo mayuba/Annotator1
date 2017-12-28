@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthentificationService } from 'app/services/index';
+import { AuthentificationService,
+          AlertService
+        } from 'app/services/index';
 import { Router } from '@angular/router';
 import { HeaderComponent } from 'app/shared/component/header/header.component';
 
@@ -12,7 +14,9 @@ export class LoginComponent implements OnInit {
   model: any = {};
   isNotLoggedIn:boolean;
   constructor(private auth : AuthentificationService,
-  private router: Router) { }
+              private router: Router,
+              private alertService: AlertService
+            ) { }
 
   ngOnInit() {
   console.log(this.isNotLoggedIn);
@@ -49,6 +53,10 @@ export class LoginComponent implements OnInit {
    this.auth.login(this.model);
    console.log("login->"+this.isNotLoggedIn);
    this.isNotLoggedIn=this.authenticated();
+
+   error => {
+         this.alertService.error(error); 
+     }
   }
 
   logout(){

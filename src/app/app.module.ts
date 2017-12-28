@@ -15,7 +15,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FooterComponent } from './shared/component/footer/footer.component';
-import { AlertDirective } from './directives/alert.directive';
+import { AlertComponent } from './directives/index';
 import { HeaderComponent } from './shared/component/header/header.component';
 import { AuthGuard } from './guard/auth.guard';
 import { RegisterComponent ,
@@ -36,6 +36,7 @@ import { RegisterComponent ,
 //importation des services
 import {ProjetService,
         UsersService,
+		AlertService,
         AuthentificationService
        } from './services/index';
 export const firebaseConfig = {
@@ -55,7 +56,7 @@ export const firebaseConfig = {
     AnnotationComponent,
     IndexComponent,
     FooterComponent,
-    AlertDirective,
+    AlertComponent,
     HomeComponent,
     ProjectComponent,
     SearchProjetComponent,
@@ -85,7 +86,8 @@ export const firebaseConfig = {
     ProjetService,
     UsersService,
     AuthGuard,
-    AuthentificationService
+    AuthentificationService,
+	AlertService
   ],
   bootstrap: [AppComponent],
   entryComponents: [GestionCategoriesComponent, GestionCorpusComponent]
