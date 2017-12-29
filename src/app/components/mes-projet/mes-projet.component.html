@@ -4,9 +4,6 @@
       <mat-toolbar color="primary"><h3>Mes projets</h3></mat-toolbar>
       </mat-card-content>
     </mat-card>
-    <div class="input-group-btn">
-      <button class="btn btn-default" mat-button (click)="openProjetDialog()"><i class="	glyphicon glyphicon-plus"></i></button>
-    </div>
     <br>
         <div  *ngFor="let item of model | async">
           <div *ngFor="let each of generateArray(item.Annotateurs)">
