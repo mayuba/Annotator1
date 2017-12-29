@@ -1,0 +1,37 @@
+<div *ngIf="isNotLoggedIn" class="col-md-6 col-md-offset-3">
+  <h2>Connexion</h2>
+  <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required/>
+        <div *ngIf="f.submitted && !email.valid" class="help-block">email is required</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required/>
+       <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">Login</button>
+        <a [routerLink]="['/register']" class="btn btn-link">Inscription</a>
+      </div>
+  </form>
+</div>
+
+  <h3>Social Login</h3>
+
+    <button (click)="signInWithGoogle()" class="button btn-social btn-google">
+      <i class="fa fa-google fa-lg"></i> Connect Google
+    </button>
+
+    <button (click)="signInWithGithub()" class="button btn-social btn-github" >
+      <i class="fa fa-github fa-lg"></i> Connect GitHub
+    </button>
+
+    <button (click)="signInWithFacebook()" class="button  btn-social btn-facebook" >
+      <i class="fa fa-facebook fa-lg"></i> Connect Facebook
+    </button>
+
+    <button (click)="signInWithTwitter()" class="button  btn-social btn-twitter" disabled>
+      <i class="fa fa-twitter fa-lg"></i> Connect Twitter
+    </button>

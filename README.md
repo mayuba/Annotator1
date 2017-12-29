@@ -11,11 +11,34 @@ Le logiciel Annotator est un logiciel qui sera disponible sur internet à partir
 
 Pour plus d'informations, vous pouvez consulter le wiki du projet qui contient un extrait du cahier des charges et permet de mieu comprendre l'enjeu du projet.
 
-#Description de la structure de fichiers du projet
-
---Annotator1 --> Est le root de notre projet. Il contient les fichiers de configurations
- |--e2e --> Permet de stocker les tests de type end-to-end.
- |--src --> Contient les fichiers sources propre à l'excécution de l'application
+#  Structure du projet
+```
+Annotator1/                       -- root du projet avec fichiers docs
+├── e2e/                          -- Permet de stocker les tests de type end-to-end.
+└── src/                          -- fichiers sources propre à l'excécution de l'application
+    ├── app/                      -- la structure de nos modules ainsi que les composantes de base
+    │	├── directives/           --
+    │	├── guard/                -- reimportation de la session
+    │	├── models/               -- 
+    │	├── components/           --  
+    │       ├── Annotation        -- fonctionnalité de l'annotation
+    │       ├── login             --
+    │       ├── register          --
+    │       ├── project           -- fonctionnalité de la gestion de projet
+    │       ├── page-not-found    --
+    │       ├── home              --
+    │       └── admin             --
+    │	├── firebase/             -- serveur firebase
+    │	├── services/             --
+    │	└── shared/               --
+    │       ├── component         --  contient l'en-tête et le pied de page
+    │           ├── headers       --
+    │           └── footer        --
+    │       └──modules            -- inscrit les composants partager aux utilisateurs.
+    ├── assets/                   -- fichiers ressources
+    ├── test/                     -- fichiers des tests
+    └── environments/             -- description des environnements (prod, test, dev)
+```
 
 # Annotateur
 

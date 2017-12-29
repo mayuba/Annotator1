@@ -1,0 +1,13 @@
+<h4>Nouvelle Catégorie</h4>
+  <mat-form-field>
+    <input matInput class="nomCategorie" placeholder="Nom">
+  </mat-form-field>
+  <p><mat-form-field>
+    <mat-select placeholder="Couleur">
+      <div *ngFor="let item of colorList">
+        <mat-option value={{item.couleur}}>{{item.nom}}</mat-option>
+      </div>
+    </mat-select>
+</mat-form-field></p>
+<button [mat-dialog-close]>Ajouter la catégorie</button>
+<button [mat-dialog-close]>Annuler</button>
